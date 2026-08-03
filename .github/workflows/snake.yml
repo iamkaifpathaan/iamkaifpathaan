@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: contribution-snake
+  cancel-in-progress: true
+
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -19,7 +23,8 @@ jobs:
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
-          outputs: assets/github-contribution-grid-snake.svg
+          outputs: |
+            assets/github-contribution-grid-snake.svg?color_snake=%2322d3ee&color_dots=%230f172a,%231e293b,%23334155,%237c3aed,%23a855f7
 
       - name: Commit and push updated snake SVG
         uses: stefanzweifel/git-auto-commit-action@v5
