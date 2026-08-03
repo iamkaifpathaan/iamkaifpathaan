@@ -19,15 +19,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Generate contribution snake
+      - name: Generate contribution snake (dark + light)
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            assets/github-contribution-grid-snake.svg?color_snake=%2322d3ee&color_dots=%230f172a,%231e293b,%23334155,%237c3aed,%23a855f7
+            assets/github-contribution-grid-snake-dark.svg?color_snake=%2322d3ee&color_dots=%232d3343,%23334155,%237c3aed,%23a855f7,%2322d3ee
+            assets/github-contribution-grid-snake.svg?color_snake=%237c3aed&color_dots=%23ebedf0,%23a5b4fc,%23818cf8,%236366f1,%237c3aed
 
-      - name: Commit and push updated snake SVG
+      - name: Commit and push updated snake SVGs
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update contribution snake"
-          file_pattern: assets/github-contribution-grid-snake.svg
+          file_pattern: assets/github-contribution-grid-snake*.svg
