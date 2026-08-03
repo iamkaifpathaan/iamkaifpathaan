@@ -32,6 +32,14 @@ Fix it once, ~20 minutes, no cost:
 6. Verify: `https://your-instance.vercel.app/api?username=iamkaifpathaan&show_icons=true` should
    render a card, not an error.
 
+**Use the production URL, not a preview URL.** Vercel gives every deployment its own URL
+(`project-hash-team.vercel.app`) plus one stable production URL (`project.vercel.app`, or your
+project name + team, no random hash). Preview-deployment URLs are usually behind Vercel
+**Deployment Protection**, so a logged-out visitor hitting them gets redirected to
+`vercel.com/sso-api` instead of a card — that will look exactly like another dead URL. In the
+Vercel dashboard: Project → Deployments → the one tagged **Production** → copy its URL, and check
+Settings → Deployment Protection is off (or "Only Preview Deployments") for production.
+
 `hide_rank=true` is set deliberately — the rank is stars/follower-weighted and misrepresents a
 newer account, so it's hidden rather than shown misleadingly.
 
