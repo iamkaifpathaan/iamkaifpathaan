@@ -18,55 +18,55 @@ I design and ship engineering-led products across embedded systems, IoT platform
 ## Technology Stack
 
 ### Languages
-`C` · `C++` · `Python` · `JavaScript` · `TypeScript`
+`C` · `C++` · `Python` · `JavaScript`
 
 ### Frontend
-`React` · `Next.js` · `Tailwind CSS` · `HTML` · `CSS`
+`HTML5` · `CSS3` · `JavaScript`
 
 ### Backend
-`Node.js` · `Express` · `REST APIs`
+`Node.js` · `Express.js`
 
 ### Databases
-`PostgreSQL` · `MongoDB` · `MySQL`
+`MongoDB` · `PostgreSQL`
 
-### Embedded
-`Arduino` · `Raspberry Pi` · `ESP32 Firmware` · `STM32`
+### Embedded Systems
+`ESP32` · `Arduino`
 
-### Hardware
-`PCB Design` · `Sensor Integration` · `Power + Interface Design` · `Prototype Validation`
+### Hardware & Electronics
+`KiCad` · `Tinkercad` · `Electronics Design` · `PCB Design` · `Circuit Simulation`
 
 ### Developer Tools
 `Git` · `GitHub` · `VS Code` · `Postman`
 
 ### AI Tools
-`GitHub Copilot` · `ChatGPT` · `Prompt-driven Engineering Workflows`
+`ChatGPT` · `GitHub Copilot` · `Claude` · `Gemini`
 
 ## Featured Projects
 
 ### Alabuzer - Ecommerce Website
 Engineering product initiative for connected systems, integrating embedded intelligence with dependable cloud-linked workflows.  
-**Repository:** [Frontend](https://github.com/iamkaifpathaan/alabuzer-frontend)
-**Repository:** [Backend](https://github.com/iamkaifpathaan/alabuzer-backend)
-**Website:** [AL-ABUZER PERFUMES](https://www.alabuzerperfumes.com)
+**Repository:** [Frontend](https://github.com/iamkaifpathaan/alabuzer-frontend)  
+**Repository:** [Backend](https://github.com/iamkaifpathaan/alabuzer-backend)  
+**Website:** Available on request
 
 ### Smart Home Automation (GROUP PROJECT-IoT)
-In this project, Relays control appliances like bulbs or fans. It’s a simple way to save energy and add comfort to daily life.
-**TinkerCad:** [Project Simulation](https://www.tinkercad.com/things/3hO5JvCXew2-home-automatuion-project?sharecode=elmM8rhA1BWTDu42xHWqdR4HfOw68UhmHlUH1gBQOj4)
+In this project, relays control appliances like bulbs or fans. It’s a simple way to save energy and add comfort to daily life.  
+**Tinkercad:** Simulation available on request
 
 ### Logic Power Supply (Electronics)
-A **logic power supply** provides the low-voltage DC power (typically 3.3V or 5V) needed to run digital circuits like microcontrollers, sensors, and ICs. It's the backbone of any electronics project, quietly keeping your logic devices alive and kicking while you play mad scientist.
-**TinkerCad:** [Project Simulation](https://www.tinkercad.com/things/0ghuvIkiMWi-logic-power-supply?sharecode=oa8w32qSiaAXm2QzXErjNUC_SaZ25HqGpJAVFvnrZbY)
+A logic power supply provides low-voltage DC power (typically 3.3V or 5V) needed to run digital circuits like microcontrollers, sensors, and ICs.  
+**Tinkercad:** Simulation available on request
 
 ### PabloCommerce (ONGOING)
 Commerce platform architecture focused on scalable backend services, modern frontend delivery, and maintainable product foundations.  
-**Repository:** [PabloCommerce](https://github.com/PablochTech/PabloCommerce)
+**Repository:** Coming soon
 
 ### Pabloch Smart Switch (ONGOING)
-Connected hardware product built around robust embedded control, automation logic, and production-aware IoT integration.  
+Connected hardware product built around robust embedded control, automation logic, and production-aware IoT integration.
 
 ### Hexapod (ONGOING)
 Robotics R&D project exploring multi-actuator control, embedded coordination, and end-to-end system integration.  
-**COLLEGE GROUP PROJECT**
+**College Group Project**
 
 ## Current Focus
 
@@ -76,15 +76,19 @@ Robotics R&D project exploring multi-actuator control, embedded coordination, an
 
 ## GitHub Analytics
 
-<p align="center">
-  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=iamkaifpathaan&show_icons=true&theme=tokyonight&hide_border=true&bg_color=00000000&title_color=22d3ee&icon_color=a855f7&text_color=cbd5e1" alt="GitHub Stats" />
-  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=iamkaifpathaan&layout=compact&theme=tokyonight&hide_border=true&bg_color=00000000&title_color=22d3ee&text_color=cbd5e1" alt="Top Languages" />
-</p>
+<!--
+Self-hosted live cards (optional):
+- Replace each [*-card] reference at the bottom with your deployed endpoint.
+- Keep query colors aligned with Pabloch branding:
+  title/ring/line: 22d3ee
+  accent/fire/side: a855f7
+  text: cbd5e1
+-->
 
-<p align="center">
-  <img width="49%" src="https://streak-stats.demolab.com?user=iamkaifpathaan&theme=transparent&hide_border=true&ring=22d3ee&fire=a855f7&currStreakLabel=22d3ee&sideLabels=a855f7&currStreakNum=22d3ee&dates=94a3b8" alt="Contribution Streak" />
-  <img width="49%" src="https://github-readme-activity-graph.vercel.app/graph?username=iamkaifpathaan&bg_color=0d1117&color=22d3ee&line=a855f7&point=22d3ee&area=true&area_color=7c3aed&hide_border=true" alt="Contribution Graph" />
-</p>
+| | |
+|---|---|
+| [![GitHub Stats][stats-card]][stats-link] | [![Top Languages][langs-card]][langs-link] |
+| [![Contribution Streak][streak-card]][streak-link] | [![Activity Graph][activity-card]][activity-link] |
 
 ## Contribution Snake
 
@@ -95,10 +99,20 @@ Robotics R&D project exploring multi-actuator control, embedded coordination, an
 ## Connect
 
 - GitHub: [@iamkaifpathaan](https://github.com/iamkaifpathaan)
-- LinkedIn: [@iamkaifpathaan](linkedin.com/in/iamkaifpathaan)
+- LinkedIn: @iamkaifpathaan
 - Portfolio: [@iamkaifpathaan](https://github.com/iamkaifpathaan)
 - Email: p0409athan@gmail.com
 
 ---
 
 <p align="center">Designed & Built by <strong>Md Kaif</strong> · Powered by <strong>Pabloch</strong></p>
+
+[stats-card]: assets/github-stats-card.svg
+[langs-card]: assets/github-languages-card.svg
+[streak-card]: assets/github-streak-card.svg
+[activity-card]: assets/github-activity-card.svg
+
+[stats-link]: https://github.com/iamkaifpathaan
+[langs-link]: https://github.com/iamkaifpathaan?tab=repositories
+[streak-link]: https://github.com/iamkaifpathaan
+[activity-link]: https://github.com/iamkaifpathaan
