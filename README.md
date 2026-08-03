@@ -142,15 +142,15 @@ Robotics R&D project exploring multi-actuator control, embedded coordination, an
 <!--
   The public github-readme-stats.vercel.app instance is community-shared and frequently
   returns 503 "rate limit exceeded" — that's the dead-URL issue. Streak + Activity Graph
-  below use independent services that are alive. Stats + Top Languages point at a
-  self-hosted placeholder domain: deploy your own free instance (20 min, see
-  docs/profile-maintenance.md) and replace YOUR-STATS-INSTANCE with your real Vercel URL.
--->
+  below use independent services that are alive. Stats + Top Languages are commented out
+  until self-hosted (20 min, see docs/profile-maintenance.md): once you have a real
+  production Vercel URL, swap it in for YOUR-STATS-INSTANCE below and uncomment this block.
 
 <p align="center">
   <img width="49%" src="https://YOUR-STATS-INSTANCE.vercel.app/api?username=iamkaifpathaan&show_icons=true&hide_rank=true&count_private=true&include_all_commits=true&hide_border=true&bg_color=00000000&title_color=22d3ee&icon_color=a855f7&text_color=cbd5e1" alt="GitHub Stats — replace YOUR-STATS-INSTANCE after self-hosting (see docs/profile-maintenance.md)" />
   <img width="49%" src="https://YOUR-STATS-INSTANCE.vercel.app/api/top-langs/?username=iamkaifpathaan&layout=compact&hide_border=true&bg_color=00000000&title_color=22d3ee&text_color=cbd5e1" alt="Top Languages — replace YOUR-STATS-INSTANCE after self-hosting (see docs/profile-maintenance.md)" />
 </p>
+-->
 
 <p align="center">
   <img width="49%" src="https://streak-stats.demolab.com?user=iamkaifpathaan&theme=transparent&hide_border=true&ring=22d3ee&fire=a855f7&currStreakLabel=22d3ee&sideLabels=a855f7&currStreakNum=22d3ee&dates=94a3b8" alt="Contribution Streak" />
