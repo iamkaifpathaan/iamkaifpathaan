@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" role="img" aria-labelledby="title desc">
+  <title id="title">Contribution Snake Placeholder</title>
+  <desc id="desc">Placeholder image for future GitHub contribution snake animation workflow output.</desc>
+  <rect width="1200" height="320" fill="#0B0F19" />
+  <text x="50%" y="48%" dominant-baseline="middle" text-anchor="middle" fill="#D1D5DB" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="28">
+    Contribution Snake Placeholder
+  </text>
+  <text x="50%" y="62%" dominant-baseline="middle" text-anchor="middle" fill="#9CA3AF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18">
+    Replace via GitHub Actions output later
+  </text>
+</svg>
