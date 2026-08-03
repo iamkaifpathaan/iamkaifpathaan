@@ -36,28 +36,37 @@ I design and ship engineering-led products across embedded systems, IoT platform
 `PCB Design` · `Sensor Integration` · `Power + Interface Design` · `Prototype Validation`
 
 ### Developer Tools
-`Git` · `GitHub` · `Docker` · `Linux` · `VS Code` · `Postman`
+`Git` · `GitHub` · `VS Code` · `Postman`
 
 ### AI Tools
 `GitHub Copilot` · `ChatGPT` · `Prompt-driven Engineering Workflows`
 
 ## Featured Projects
 
-### Alabuzer
+### Alabuzer - Ecommerce Website
 Engineering product initiative for connected systems, integrating embedded intelligence with dependable cloud-linked workflows.  
-**Repository:** Placeholder — add canonical repository URL.
+**Repository:** [Frontend](https://github.com/iamkaifpathaan/alabuzer-frontend)
+**Repository:** [Backend](https://github.com/iamkaifpathaan/alabuzer-backend)
+**Website:** [AL-ABUZER PERFUMES](https://www.alabuzerperfumes.com)
 
-### PabloCommerce
+### Smart Home Automation (GROUP PROJECT-IoT)
+In this project, Relays control appliances like bulbs or fans. It’s a simple way to save energy and add comfort to daily life.
+**TinkerCad:** [Project Simulation](https://www.tinkercad.com/things/3hO5JvCXew2-home-automatuion-project?sharecode=elmM8rhA1BWTDu42xHWqdR4HfOw68UhmHlUH1gBQOj4)
+
+### Logic Power Supply (Electronics)
+A **logic power supply** provides the low-voltage DC power (typically 3.3V or 5V) needed to run digital circuits like microcontrollers, sensors, and ICs. It's the backbone of any electronics project, quietly keeping your logic devices alive and kicking while you play mad scientist.
+**TinkerCad:** [Project Simulation](https://www.tinkercad.com/things/0ghuvIkiMWi-logic-power-supply?sharecode=oa8w32qSiaAXm2QzXErjNUC_SaZ25HqGpJAVFvnrZbY)
+
+### PabloCommerce (ONGOING)
 Commerce platform architecture focused on scalable backend services, modern frontend delivery, and maintainable product foundations.  
-**Repository:** Placeholder — add canonical repository URL.
+**Repository:** [PabloCommerce](https://github.com/PablochTech/PabloCommerce)
 
-### Pabloch Smart Switch
+### Pabloch Smart Switch (ONGOING)
 Connected hardware product built around robust embedded control, automation logic, and production-aware IoT integration.  
-**Repository:** Placeholder — add canonical repository URL.
 
-### Hexapod
+### Hexapod (ONGOING)
 Robotics R&D project exploring multi-actuator control, embedded coordination, and end-to-end system integration.  
-**Repository:** Placeholder — add canonical repository URL.
+**COLLEGE GROUP PROJECT**
 
 ## Current Focus
 
