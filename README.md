@@ -86,9 +86,9 @@ Robotics R&D project exploring multi-actuator control, embedded coordination, an
 ## Connect
 
 - GitHub: [@iamkaifpathaan](https://github.com/iamkaifpathaan)
-- LinkedIn: Placeholder — add public profile URL.
-- Portfolio: Placeholder — add portfolio URL.
-- Email: Placeholder — add professional contact email.
+- LinkedIn: [@iamkaifpathaan](linkedin.com/in/iamkaifpathaan)
+- Portfolio: [@iamkaifpathaan](https://github.com/iamkaifpathaan)
+- Email: p0409athan@gmail.com
 
 ---
 
