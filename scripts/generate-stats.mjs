@@ -265,7 +265,7 @@ function overviewCard(theme, stats, now = new Date()) {
       const delay = (0.08 * i).toFixed(2);
       return `
 <g opacity="0" class="row-fade" style="animation-delay:${delay}s">
-  <text x="24" y="${y}" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="${t.label}" textLength="220" lengthAdjust="spacingAndGlyphs">${escapeXml(label)}</text>
+  <text x="24" y="${y}" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="${t.label}">${escapeXml(label)}</text>
   <line x1="252" y1="${y - 4}" x2="${width - 96}" y2="${y - 4}" stroke="${t.track}" stroke-width="1" stroke-dasharray="1,4"/>
   <text x="${width - 24}" y="${y}" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="${t.value}">${escapeXml(value.toLocaleString())}</text>
 </g>`;
@@ -286,7 +286,9 @@ ${timestampFooter(theme, width, height, now)}
 function langCard(theme, langs, now = new Date()) {
   const t = THEMES[theme];
   const width = 495;
-  const rowH = 32;
+  // Matches overviewCard's 7-row height (56 + 7*30 + 18 = 284) so the two
+  // cards line up edge-to-edge when shown side by side in the README.
+  const rowH = 35;
   const top = 56;
   const height = top + langs.length * rowH + 18;
   const barX = 160;
@@ -301,7 +303,7 @@ function langCard(theme, langs, now = new Date()) {
       const fillW = (barW * lang.pct) / 100;
       return `
 <g opacity="0" class="row-fade" style="animation-delay:${delay}s">
-  <text x="24" y="${y}" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="${t.label}" textLength="128" lengthAdjust="spacingAndGlyphs">${escapeXml(lang.name)}</text>
+  <text x="24" y="${y}" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="${t.label}">${escapeXml(lang.name)}</text>
   <rect x="${barX}" y="${y - barTrackY}" width="${barW}" height="${barH}" rx="3.5" fill="${t.track}"/>
   <rect x="${barX}" y="${y - barTrackY}" width="0" height="${barH}" rx="3.5" fill="${lang.color}">
     <animate attributeName="width" from="0" to="${fillW.toFixed(2)}" dur=".8s" begin="${delay}s" fill="freeze"/>
@@ -325,16 +327,18 @@ ${timestampFooter(theme, width, height, now)}
 function streakCard(theme, streaks, now = new Date()) {
   const t = THEMES[theme];
   const width = 495;
-  const height = 160;
+  // Matches activityCard's height so the two cards line up edge-to-edge
+  // when shown side by side in the README.
+  const height = 200;
   const dividerX = 247.5;
   const leftCenter = 135;
   const rightCenter = 360;
 
   const tile = (cx, color, length, rangeLabel, label, delay) => `
 <g opacity="0" class="row-fade" style="animation-delay:${delay}s" text-anchor="middle">
-  <text x="${cx}" y="98" font-family="Consolas,'Fira Code',monospace" font-size="42" font-weight="700" fill="${color}">${length}</text>
-  <text x="${cx}" y="120" font-family="Consolas,'Fira Code',monospace" font-size="12" font-weight="700" letter-spacing="1" fill="${t.value}">${escapeXml(label)}</text>
-  <text x="${cx}" y="138" font-family="Consolas,'Fira Code',monospace" font-size="11" fill="${t.label}">${escapeXml(rangeLabel)}</text>
+  <text x="${cx}" y="118" font-family="Consolas,'Fira Code',monospace" font-size="42" font-weight="700" fill="${color}">${length}</text>
+  <text x="${cx}" y="140" font-family="Consolas,'Fira Code',monospace" font-size="12" font-weight="700" letter-spacing="1" fill="${t.value}">${escapeXml(label)}</text>
+  <text x="${cx}" y="158" font-family="Consolas,'Fira Code',monospace" font-size="11" fill="${t.label}">${escapeXml(rangeLabel)}</text>
 </g>`;
 
   const currentRange = streaks.current.length > 0
@@ -351,7 +355,7 @@ function streakCard(theme, streaks, now = new Date()) {
 </style>
 ${chrome(theme, width, height, "streak.sh --status")}
 ${tile(leftCenter, PALETTE.purple, streaks.current.length, currentRange, "CURRENT STREAK", "0.00")}
-<line x1="${dividerX}" y1="56" x2="${dividerX}" y2="${height - 20}" stroke="${t.border}" stroke-opacity="${t.borderOpacity}"/>
+<line x1="${dividerX}" y1="56" x2="${dividerX}" y2="${height - 34}" stroke="${t.border}" stroke-opacity="${t.borderOpacity}"/>
 ${tile(rightCenter, PALETTE.cyan, streaks.longest.length, longestRange, "LONGEST STREAK", "0.08")}
 ${timestampFooter(theme, width, height, now)}
 </svg>`;

@@ -49,6 +49,15 @@ Output files (light + dark, shown via theme-aware `<picture>` elements like the 
 - `assets/stats-activity.svg` / `-dark.svg` — a day-by-day area/line chart of the most recent 84
   days of contributions.
 
+Row labels render at their natural monospace width — don't reintroduce a fixed `textLength` /
+`lengthAdjust` on label `<text>` elements to force column alignment. It was tried, and it stretches
+short labels ("Followers") and squishes long ones ("Pull Requests (12mo)") into visibly distorted
+glyph spacing, which is what made the cards look off in the first place. The dotted leader line
+already anchors the value column independent of label width, so plain left-aligned text is both
+simpler and correct. Card pairs shown side by side in the README (`overview`/`top-langs` at 284px,
+`streak`/`activity` at 200px) are also kept at matching heights on purpose — don't let one grow
+without adjusting the other, or the two-column grid gets a jagged bottom edge.
+
 To change what any card shows, edit the matching function in `scripts/generate-stats.mjs`
 (`overviewCard` / `langCard` / `streakCard` / `activityCard`) — each is covered by an offline unit
 test (mocked data, no network) that checks the SVG is well-formed before it's trusted against the
@@ -85,5 +94,6 @@ live API.
 Before publishing major updates, check `README.md` for:
 - Project repository URLs.
 - LinkedIn URL.
-- Portfolio URL (currently a "coming soon" badge pointing at the GitHub profile).
+- Portfolio URL (currently `https://portfolio-seven-ebon-79.vercel.app/`, linked from both the
+  quick-links row under the hero and the Connect section).
 - Contact email.

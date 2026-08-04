@@ -19,6 +19,12 @@
   Building production-minded hardware + software systems with a focus on reliability, speed, and product quality.
 </p>
 
+<p align="center">
+  <a href="https://portfolio-seven-ebon-79.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-22D3EE?style=for-the-badge&logo=vercel&logoColor=0A101F&labelColor=0A101F" alt="Portfolio" /></a>
+  <a href="https://www.linkedin.com/in/iamkaifpathaan/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  <a href="mailto:p0409athan@gmail.com"><img src="https://img.shields.io/badge/Email-0A101F?style=for-the-badge&logo=gmail&logoColor=10B981&labelColor=0A101F" alt="Email" /></a>
+</p>
+
 ---
 ## Contribution Snake
 
@@ -232,13 +238,11 @@ Robotics R&D project exploring multi-actuator control, embedded coordination, an
   <img src="https://img.shields.io/badge/Email-0A101F?style=for-the-badge&logo=gmail&logoColor=10B981&labelColor=0A101F" alt="Email" />
 </a>
 &nbsp;&nbsp;
-<a href="https://github.com/iamkaifpathaan">
-  <img src="https://img.shields.io/badge/Portfolio-0A101F?style=for-the-badge&logo=vercel&logoColor=22D3EE&labelColor=0A101F" alt="Portfolio — coming soon" />
+<a href="https://portfolio-seven-ebon-79.vercel.app/">
+  <img src="https://img.shields.io/badge/Portfolio-0A101F?style=for-the-badge&logo=vercel&logoColor=22D3EE&labelColor=0A101F" alt="Portfolio" />
 </a>
 
 </div>
-
-<p align="center"><sub>Portfolio site is coming soon — the badge above currently links to this GitHub profile.</sub></p>
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A101F,50:22D3EE,100:A855F7&height=120&section=footer&text=Thanks%20for%20visiting&fontSize=22&fontColor=ffffff&animation=fadeIn&fontAlignY=80" width="100%" alt="" />
