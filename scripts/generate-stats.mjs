@@ -1,5 +1,5 @@
-// Generates assets/stats-overview(-dark).svg and assets/stats-top-langs(-dark).svg
-// from live GitHub data. Runs inside GitHub Actions using the built-in
+// Generates assets/stats-{overview,top-langs,streak,activity}(-dark).svg from
+// live GitHub data. Runs inside GitHub Actions using the built-in
 // GITHUB_TOKEN — no personal access token, no external hosting, ever.
 //
 // Usage: GH_TOKEN=... GH_LOGIN=iamkaifpathaan node scripts/generate-stats.mjs
@@ -68,7 +68,12 @@ const CORE_QUERY = `
         totalCommitContributions
         totalPullRequestContributions
         totalIssueContributions
-        contributionCalendar { totalContributions }
+        contributionCalendar {
+          totalContributions
+          weeks {
+            contributionDays { date contributionCount }
+          }
+        }
       }
     }
   }
@@ -100,13 +105,74 @@ const REPOS_QUERY = `
 async function fetchCoreStats(login) {
   const data = await ghGraphQL(CORE_QUERY, { login });
   const u = data.user;
+  const days = u.contributionsCollection.contributionCalendar.weeks.flatMap((w) =>
+    w.contributionDays.map((d) => ({ date: d.date, count: d.contributionCount }))
+  );
   return {
     followers: u.followers.totalCount,
     commits: u.contributionsCollection.totalCommitContributions,
     prs: u.contributionsCollection.totalPullRequestContributions,
     issues: u.contributionsCollection.totalIssueContributions,
     contributions: u.contributionsCollection.contributionCalendar.totalContributions,
+    days,
   };
+}
+
+// days: chronologically ascending [{date:'YYYY-MM-DD', count:Number}, ...]
+function computeStreaks(days) {
+  let longestLen = 0;
+  let longestStart = null;
+  let longestEnd = null;
+  let run = 0;
+  let runStart = null;
+
+  for (const d of days) {
+    if (d.count > 0) {
+      if (run === 0) runStart = d.date;
+      run++;
+      if (run > longestLen) {
+        longestLen = run;
+        longestStart = runStart;
+        longestEnd = d.date;
+      }
+    } else {
+      run = 0;
+    }
+  }
+
+  // Current streak: today (last entry) not having contributions yet doesn't
+  // break it, since the day isn't over — only look backward from there.
+  let i = days.length - 1;
+  if (days[i] && days[i].count === 0) i--;
+  const endIdx = i;
+  let currentLen = 0;
+  while (i >= 0 && days[i].count > 0) {
+    currentLen++;
+    i--;
+  }
+
+  return {
+    current: {
+      length: currentLen,
+      start: currentLen > 0 ? days[i + 1].date : null,
+      end: currentLen > 0 ? days[endIdx].date : null,
+    },
+    longest: { length: longestLen, start: longestStart, end: longestEnd },
+  };
+}
+
+function formatShortDate(dateStr) {
+  const d = new Date(`${dateStr}T00:00:00Z`);
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
+}
+
+function formatLongDate(dateStr) {
+  const d = new Date(`${dateStr}T00:00:00Z`);
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+}
+
+function formatTimestamp(now) {
+  return `${now.toISOString().slice(0, 16).replace("T", " ")} UTC`;
 }
 
 async function fetchReposAggregate(login) {
@@ -172,7 +238,12 @@ function chrome(theme, width, height, title) {
 <rect x="24" y="34" width="${width - 48}" height="1" fill="${t.border}" fill-opacity="${t.borderOpacity}"/>`;
 }
 
-function overviewCard(theme, stats) {
+function timestampFooter(theme, width, height, now) {
+  const t = THEMES[theme];
+  return `<text x="${width - 16}" y="${height - 10}" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="9" fill="${t.label}" fill-opacity=".55">updated ${escapeXml(formatTimestamp(now))}</text>`;
+}
+
+function overviewCard(theme, stats, now = new Date()) {
   const t = THEMES[theme];
   const width = 495;
   const rows = [
@@ -208,10 +279,11 @@ function overviewCard(theme, stats) {
 </style>
 ${chrome(theme, width, height, "stats.sh --overview")}
 ${rowsSvg}
+${timestampFooter(theme, width, height, now)}
 </svg>`;
 }
 
-function langCard(theme, langs) {
+function langCard(theme, langs, now = new Date()) {
   const t = THEMES[theme];
   const width = 495;
   const rowH = 32;
@@ -246,6 +318,102 @@ function langCard(theme, langs) {
 </style>
 ${chrome(theme, width, height, "langs.sh --top")}
 ${rowsSvg}
+${timestampFooter(theme, width, height, now)}
+</svg>`;
+}
+
+function streakCard(theme, streaks, now = new Date()) {
+  const t = THEMES[theme];
+  const width = 495;
+  const height = 160;
+  const dividerX = 247.5;
+  const leftCenter = 135;
+  const rightCenter = 360;
+
+  const tile = (cx, color, length, rangeLabel, label, delay) => `
+<g opacity="0" class="row-fade" style="animation-delay:${delay}s" text-anchor="middle">
+  <text x="${cx}" y="98" font-family="Consolas,'Fira Code',monospace" font-size="42" font-weight="700" fill="${color}">${length}</text>
+  <text x="${cx}" y="120" font-family="Consolas,'Fira Code',monospace" font-size="12" font-weight="700" letter-spacing="1" fill="${t.value}">${escapeXml(label)}</text>
+  <text x="${cx}" y="138" font-family="Consolas,'Fira Code',monospace" font-size="11" fill="${t.label}">${escapeXml(rangeLabel)}</text>
+</g>`;
+
+  const currentRange = streaks.current.length > 0
+    ? `${formatLongDate(streaks.current.start)} – Present`
+    : "No active streak";
+  const longestRange = streaks.longest.length > 0
+    ? `${formatShortDate(streaks.longest.start)} – ${formatShortDate(streaks.longest.end)}`
+    : "—";
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-label="Contribution streaks for ${LOGIN}">
+<style>
+.row-fade { animation: fadeIn .6s ease-out forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+${chrome(theme, width, height, "streak.sh --status")}
+${tile(leftCenter, PALETTE.purple, streaks.current.length, currentRange, "CURRENT STREAK", "0.00")}
+<line x1="${dividerX}" y1="56" x2="${dividerX}" y2="${height - 20}" stroke="${t.border}" stroke-opacity="${t.borderOpacity}"/>
+${tile(rightCenter, PALETTE.cyan, streaks.longest.length, longestRange, "LONGEST STREAK", "0.08")}
+${timestampFooter(theme, width, height, now)}
+</svg>`;
+}
+
+function activityCard(theme, days, now = new Date()) {
+  const t = THEMES[theme];
+  const width = 495;
+  const height = 200;
+  const chartLeft = 44;
+  const chartRight = width - 24;
+  const chartTop = 56;
+  const chartBottom = height - 34;
+  const chartW = chartRight - chartLeft;
+  const chartH = chartBottom - chartTop;
+
+  const window = days.slice(-84);
+  const max = Math.max(1, ...window.map((d) => d.count));
+  const n = Math.max(1, window.length - 1);
+
+  const points = window.map((d, i) => {
+    const x = chartLeft + (chartW * i) / n;
+    const y = chartBottom - (d.count / max) * chartH;
+    return [x, y];
+  });
+
+  const linePath = points.map(([x, y], i) => `${i === 0 ? "M" : "L"}${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
+  const areaPath = `${linePath} L${chartRight.toFixed(1)},${chartBottom} L${chartLeft.toFixed(1)},${chartBottom} Z`;
+
+  const gridLines = [0, 0.5, 1]
+    .map((f) => {
+      const y = chartBottom - f * chartH;
+      const val = Math.round(max * f);
+      return `
+<line x1="${chartLeft}" y1="${y.toFixed(1)}" x2="${chartRight}" y2="${y.toFixed(1)}" stroke="${t.track}" stroke-width="1" stroke-dasharray="1,4"/>
+<text x="${chartLeft - 8}" y="${(y + 3).toFixed(1)}" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="9" fill="${t.label}">${val}</text>`;
+    })
+    .join("");
+
+  const rangeLabel = window.length
+    ? `${formatShortDate(window[0].date)} – ${formatShortDate(window[window.length - 1].date)}`
+    : "";
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-label="Daily contribution activity for ${LOGIN}">
+<defs>
+  <linearGradient id="areaFill-${theme}" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="${PALETTE.cyan}" stop-opacity=".35"/>
+    <stop offset="100%" stop-color="${PALETTE.purple}" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+<style>
+.row-fade { animation: fadeIn .6s ease-out forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+${chrome(theme, width, height, "activity.sh --graph")}
+<g opacity="0" class="row-fade" style="animation-delay:0.05s">
+${gridLines}
+<path d="${areaPath}" fill="url(#areaFill-${theme})" stroke="none"/>
+<path d="${linePath}" fill="none" stroke="${PALETTE.cyan}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="${chartLeft}" y="${height - 16}" font-family="Consolas,'Fira Code',monospace" font-size="10" fill="${t.label}">${escapeXml(rangeLabel)}</text>
+</g>
+${timestampFooter(theme, width, height, now)}
 </svg>`;
 }
 
@@ -270,17 +438,24 @@ async function main() {
     issues: core.issues,
   };
   const langs = topLanguages(repoAgg.languages, 6);
+  const streaks = computeStreaks(core.days);
+  const now = new Date();
 
   const { writeFile, mkdir } = await import("node:fs/promises");
   await mkdir("assets", { recursive: true });
 
-  await writeFile("assets/stats-overview.svg", overviewCard("light", stats));
-  await writeFile("assets/stats-overview-dark.svg", overviewCard("dark", stats));
-  await writeFile("assets/stats-top-langs.svg", langCard("light", langs));
-  await writeFile("assets/stats-top-langs-dark.svg", langCard("dark", langs));
+  await writeFile("assets/stats-overview.svg", overviewCard("light", stats, now));
+  await writeFile("assets/stats-overview-dark.svg", overviewCard("dark", stats, now));
+  await writeFile("assets/stats-top-langs.svg", langCard("light", langs, now));
+  await writeFile("assets/stats-top-langs-dark.svg", langCard("dark", langs, now));
+  await writeFile("assets/stats-streak.svg", streakCard("light", streaks, now));
+  await writeFile("assets/stats-streak-dark.svg", streakCard("dark", streaks, now));
+  await writeFile("assets/stats-activity.svg", activityCard("light", core.days, now));
+  await writeFile("assets/stats-activity-dark.svg", activityCard("dark", core.days, now));
 
   console.log("Stats:", stats);
   console.log("Top languages:", langs.map((l) => `${l.name} ${l.pct.toFixed(1)}%`).join(", "));
+  console.log("Streaks:", streaks);
 }
 
 // Only auto-run when executed directly (`node generate-stats.mjs`), so the
@@ -293,4 +468,15 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   });
 }
 
-export { overviewCard, langCard, topLanguages, escapeXml, chrome };
+export {
+  overviewCard,
+  langCard,
+  streakCard,
+  activityCard,
+  topLanguages,
+  computeStreaks,
+  formatShortDate,
+  formatLongDate,
+  escapeXml,
+  chrome,
+};
