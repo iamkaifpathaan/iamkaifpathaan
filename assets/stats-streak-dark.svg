@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495 160" width="495" height="160" role="img" aria-label="Contribution streaks for iamkaifpathaan">
+<style>
+.row-fade { animation: fadeIn .6s ease-out forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+
+<rect width="495" height="160" rx="18" fill="#0B1020"/>
+<rect x="1" y="1" width="493" height="158" rx="17" fill="#131A2E" fill-opacity="0.72"/>
+<rect x="1.5" y="1.5" width="492" height="157" rx="16.5" fill="none" stroke="#22D3EE" stroke-opacity="0.16"/>
+<g fill="#22D3EE" fill-opacity=".28">
+  <rect x="461" y="16" width="5" height="5" rx="1"/>
+  <rect x="473" y="16" width="5" height="5" rx="1"/>
+</g>
+<rect x="24" y="14" width="5" height="5" rx="1" fill="#22D3EE"/>
+<text x="36" y="23" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#E2E8F0">streak.sh --status</text>
+<rect x="24" y="34" width="447" height="1" fill="#22D3EE" fill-opacity="0.16"/>
+
+<g opacity="0" class="row-fade" style="animation-delay:0.00s" text-anchor="middle">
+  <text x="135" y="98" font-family="Consolas,'Fira Code',monospace" font-size="42" font-weight="700" fill="#A855F7">2</text>
+  <text x="135" y="120" font-family="Consolas,'Fira Code',monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#F1F5F9">CURRENT STREAK</text>
+  <text x="135" y="138" font-family="Consolas,'Fira Code',monospace" font-size="11" fill="#94A3B8">Aug 3, 2026 – Present</text>
+</g>
+<line x1="247.5" y1="56" x2="247.5" y2="140" stroke="#22D3EE" stroke-opacity="0.16"/>
+
+<g opacity="0" class="row-fade" style="animation-delay:0.08s" text-anchor="middle">
+  <text x="360" y="98" font-family="Consolas,'Fira Code',monospace" font-size="42" font-weight="700" fill="#22D3EE">5</text>
+  <text x="360" y="120" font-family="Consolas,'Fira Code',monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#F1F5F9">LONGEST STREAK</text>
+  <text x="360" y="138" font-family="Consolas,'Fira Code',monospace" font-size="11" fill="#94A3B8">Apr 18 – Apr 22</text>
+</g>
+<text x="479" y="150" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="9" fill="#94A3B8" fill-opacity=".55">updated 2026-08-04 15:14 UTC</text>
+</svg>

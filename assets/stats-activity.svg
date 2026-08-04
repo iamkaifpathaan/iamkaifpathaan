@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495 200" width="495" height="200" role="img" aria-label="Daily contribution activity for iamkaifpathaan">
+<defs>
+  <linearGradient id="areaFill-light" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#22D3EE" stop-opacity=".35"/>
+    <stop offset="100%" stop-color="#A855F7" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+<style>
+.row-fade { animation: fadeIn .6s ease-out forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+
+<rect width="495" height="200" rx="18" fill="#F8FAFC"/>
+<rect x="1" y="1" width="493" height="198" rx="17" fill="#FFFFFF" fill-opacity="1"/>
+<rect x="1.5" y="1.5" width="492" height="197" rx="16.5" fill="none" stroke="#0F172A" stroke-opacity="0.08"/>
+<g fill="#7C3AED" fill-opacity=".28">
+  <rect x="461" y="16" width="5" height="5" rx="1"/>
+  <rect x="473" y="16" width="5" height="5" rx="1"/>
+</g>
+<rect x="24" y="14" width="5" height="5" rx="1" fill="#22D3EE"/>
+<text x="36" y="23" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">activity.sh --graph</text>
+<rect x="24" y="34" width="447" height="1" fill="#0F172A" fill-opacity="0.08"/>
+<g opacity="0" class="row-fade" style="animation-delay:0.05s">
+
+<line x1="44" y1="166.0" x2="471" y2="166.0" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="1,4"/>
+<text x="36" y="169.0" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="9" fill="#475569">0</text>
+<line x1="44" y1="111.0" x2="471" y2="111.0" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="1,4"/>
+<text x="36" y="114.0" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="9" fill="#475569">16</text>
+<line x1="44" y1="56.0" x2="471" y2="56.0" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="1,4"/>
+<text x="36" y="59.0" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="9" fill="#475569">31</text>
+<path d="M44.0,166.0 L49.1,166.0 L54.3,166.0 L59.4,166.0 L64.6,166.0 L69.7,166.0 L74.9,166.0 L80.0,166.0 L85.2,166.0 L90.3,166.0 L95.4,166.0 L100.6,166.0 L105.7,166.0 L110.9,166.0 L116.0,166.0 L121.2,166.0 L126.3,166.0 L131.5,166.0 L136.6,134.1 L141.7,166.0 L146.9,158.9 L152.0,130.5 L157.2,137.6 L162.3,166.0 L167.5,166.0 L172.6,166.0 L177.8,166.0 L182.9,166.0 L188.0,166.0 L193.2,166.0 L198.3,166.0 L203.5,166.0 L208.6,166.0 L213.8,166.0 L218.9,166.0 L224.1,166.0 L229.2,166.0 L234.3,166.0 L239.5,166.0 L244.6,166.0 L249.8,166.0 L254.9,166.0 L260.1,166.0 L265.2,166.0 L270.4,166.0 L275.5,166.0 L280.7,166.0 L285.8,166.0 L290.9,166.0 L296.1,166.0 L301.2,166.0 L306.4,166.0 L311.5,166.0 L316.7,166.0 L321.8,166.0 L327.0,162.5 L332.1,148.3 L337.2,166.0 L342.4,166.0 L347.5,166.0 L352.7,166.0 L357.8,166.0 L363.0,166.0 L368.1,166.0 L373.3,166.0 L378.4,166.0 L383.5,166.0 L388.7,166.0 L393.8,166.0 L399.0,166.0 L404.1,166.0 L409.3,166.0 L414.4,166.0 L419.6,166.0 L424.7,148.3 L429.8,144.7 L435.0,166.0 L440.1,166.0 L445.3,166.0 L450.4,166.0 L455.6,166.0 L460.7,166.0 L465.9,130.5 L471.0,56.0 L471.0,166 L44.0,166 Z" fill="url(#areaFill-light)" stroke="none"/>
+<path d="M44.0,166.0 L49.1,166.0 L54.3,166.0 L59.4,166.0 L64.6,166.0 L69.7,166.0 L74.9,166.0 L80.0,166.0 L85.2,166.0 L90.3,166.0 L95.4,166.0 L100.6,166.0 L105.7,166.0 L110.9,166.0 L116.0,166.0 L121.2,166.0 L126.3,166.0 L131.5,166.0 L136.6,134.1 L141.7,166.0 L146.9,158.9 L152.0,130.5 L157.2,137.6 L162.3,166.0 L167.5,166.0 L172.6,166.0 L177.8,166.0 L182.9,166.0 L188.0,166.0 L193.2,166.0 L198.3,166.0 L203.5,166.0 L208.6,166.0 L213.8,166.0 L218.9,166.0 L224.1,166.0 L229.2,166.0 L234.3,166.0 L239.5,166.0 L244.6,166.0 L249.8,166.0 L254.9,166.0 L260.1,166.0 L265.2,166.0 L270.4,166.0 L275.5,166.0 L280.7,166.0 L285.8,166.0 L290.9,166.0 L296.1,166.0 L301.2,166.0 L306.4,166.0 L311.5,166.0 L316.7,166.0 L321.8,166.0 L327.0,162.5 L332.1,148.3 L337.2,166.0 L342.4,166.0 L347.5,166.0 L352.7,166.0 L357.8,166.0 L363.0,166.0 L368.1,166.0 L373.3,166.0 L378.4,166.0 L383.5,166.0 L388.7,166.0 L393.8,166.0 L399.0,166.0 L404.1,166.0 L409.3,166.0 L414.4,166.0 L419.6,166.0 L424.7,148.3 L429.8,144.7 L435.0,166.0 L440.1,166.0 L445.3,166.0 L450.4,166.0 L455.6,166.0 L460.7,166.0 L465.9,130.5 L471.0,56.0" fill="none" stroke="#22D3EE" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="44" y="184" font-family="Consolas,'Fira Code',monospace" font-size="10" fill="#475569">May 13 – Aug 4</text>
+</g>
+<text x="479" y="190" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="9" fill="#475569" fill-opacity=".55">updated 2026-08-04 15:14 UTC</text>
+</svg>
