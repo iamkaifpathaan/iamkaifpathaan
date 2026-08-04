@@ -103,39 +103,84 @@ I design and ship engineering-led products across embedded systems, IoT platform
 <img src="https://img.shields.io/badge/Prompt%20Engineering-A855F7?style=for-the-badge" alt="Prompt Engineering" />
 </p>
 
-## Featured Projects
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A101F,50:22D3EE,100:A855F7&height=140&section=header&text=Featured%20Projects&fontSize=36&fontColor=ffffff&animation=fadeIn&fontAlignY=62" width="100%" alt="Featured Projects" />
+</p>
 
-### Alabuzer - Ecommerce Website
-Engineering product initiative for connected systems, integrating embedded intelligence with dependable cloud-linked workflows.  
-**Repository:** [Frontend](https://github.com/iamkaifpathaan/alabuzer-frontend)
-**Repository:** [Backend](https://github.com/iamkaifpathaan/alabuzer-backend)
-**Website:** [AL-ABUZER PERFUMES](https://www.alabuzerperfumes.com)
+<table align="center" width="100%">
+<tr>
+<td width="50%" valign="top">
 
-### Smart Home Automation (GROUP PROJECT-IoT)
-In this project, Relays control appliances like bulbs or fans. It's a simple way to save energy and add comfort to daily life.
-**TinkerCad:** [Project Simulation](https://www.tinkercad.com/things/3hO5JvCXew2-home-automatuion-project?sharecode=elmM8rhA1BWTDu42xHWqdR4HfOw68UhmHlUH1gBQOj4)
+### Alabuzer — Ecommerce Website
+<img src="https://img.shields.io/badge/LIVE-10B981?style=for-the-badge" alt="Live" />
 
-### Footstep Power Generation (GROUP PROJECT-Embedded)
-Connected hardware product built around robust embedded control, automation logic, and production-aware IoT integration.
-**Working Prototype:** [Video](https://www.linkedin.com/posts/iamkaifpathaan_excited-to-share-our-working-prototype-of-activity-7400474295782662144-vgE2?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE-MovABa_Enn0qLAUyNlq5B0AUt1rH774c)
+Engineering product initiative for connected systems, integrating embedded intelligence with dependable cloud-linked workflows.
 
-### Logic Power Supply (Electronics)
-A **logic power supply** provides the low-voltage DC power (typically 3.3V or 5V) needed to run digital circuits like microcontrollers, sensors, and ICs. It's the backbone of any electronics project, quietly keeping your logic devices alive and kicking while you play mad scientist.
-**TinkerCad:** [Project Simulation](https://www.tinkercad.com/things/0ghuvIkiMWi-logic-power-supply?sharecode=oa8w32qSiaAXm2QzXErjNUC_SaZ25HqGpJAVFvnrZbY)
+<a href="https://github.com/iamkaifpathaan/alabuzer-frontend"><img src="https://img.shields.io/badge/Frontend%20Repo-A855F7?style=for-the-badge&logo=github&logoColor=white" alt="Frontend Repo" /></a>
+<a href="https://github.com/iamkaifpathaan/alabuzer-backend"><img src="https://img.shields.io/badge/Backend%20Repo-A855F7?style=for-the-badge&logo=github&logoColor=white" alt="Backend Repo" /></a>
+<a href="https://www.alabuzerperfumes.com"><img src="https://img.shields.io/badge/Live%20Site-A855F7?style=for-the-badge" alt="Live Site" /></a>
 
-### PabloCommerce (ONGOING)
-Commerce platform architecture focused on scalable backend services, modern frontend delivery, and maintainable product foundations.  
-**Repository:** [PabloCommerce](https://github.com/PablochTech/PabloCommerce)
+</td>
+<td width="50%" valign="top">
 
-### Hexapod (ONGOING)
-Robotics R&D project exploring multi-actuator control, embedded coordination, and end-to-end system integration.  
-**COLLEGE GROUP PROJECT**
+### Smart Home Automation
+<img src="https://img.shields.io/badge/SCALING%20TO%20PRODUCT-22D3EE?style=for-the-badge" alt="Scaling to Product" />
+
+Started as a 2nd-year IoT group project — relays controlling appliances like bulbs and fans to save energy and add comfort. Now being scaled from that prototype toward a production-ready connected device.
+
+<a href="https://www.tinkercad.com/things/3hO5JvCXew2-home-automatuion-project?sharecode=elmM8rhA1BWTDu42xHWqdR4HfOw68UhmHlUH1gBQOj4"><img src="https://img.shields.io/badge/TinkerCad%20Simulation-A855F7?style=for-the-badge&logo=tinkercad&logoColor=white" alt="TinkerCad Simulation" /></a>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### Footstep Power Generation
+<img src="https://img.shields.io/badge/WORKING%20PROTOTYPE-A855F7?style=for-the-badge" alt="Working Prototype" />
+
+Group embedded project — connected hardware built around robust embedded control, automation logic, and production-aware IoT integration.
+
+<a href="https://www.linkedin.com/posts/iamkaifpathaan_excited-to-share-our-working-prototype-of-activity-7400474295782662144-vgE2?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE-MovABa_Enn0qLAUyNlq5B0AUt1rH774c"><img src="https://img.shields.io/badge/Video%20Demo-A855F7?style=for-the-badge" alt="Video Demo" /></a>
+
+</td>
+<td width="50%" valign="top">
+
+### Logic Power Supply
+<img src="https://img.shields.io/badge/SIMULATION-A855F7?style=for-the-badge" alt="Simulation" />
+
+A logic power supply provides the low-voltage DC power (3.3V or 5V) that keeps digital circuits — microcontrollers, sensors, ICs — alive and running. The quiet backbone of any electronics project.
+
+<a href="https://www.tinkercad.com/things/0ghuvIkiMWi-logic-power-supply?sharecode=oa8w32qSiaAXm2QzXErjNUC_SaZ25HqGpJAVFvnrZbY"><img src="https://img.shields.io/badge/TinkerCad%20Simulation-A855F7?style=for-the-badge&logo=tinkercad&logoColor=white" alt="TinkerCad Simulation" /></a>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### PabloCommerce
+<img src="https://img.shields.io/badge/ONGOING-22D3EE?style=for-the-badge" alt="Ongoing" />
+
+Commerce platform architecture focused on scalable backend services, modern frontend delivery, and maintainable product foundations.
+
+<a href="https://github.com/PablochTech/PabloCommerce"><img src="https://img.shields.io/badge/Repository-A855F7?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+
+</td>
+<td width="50%" valign="top">
+
+### Hexapod
+<img src="https://img.shields.io/badge/ONGOING-22D3EE?style=for-the-badge" alt="Ongoing" /> <img src="https://img.shields.io/badge/COLLEGE%20GROUP%20PROJECT-A855F7?style=for-the-badge" alt="College Group Project" />
+
+Robotics R&D project exploring multi-actuator control, embedded coordination, and end-to-end system integration.
+
+</td>
+</tr>
+</table>
 
 ## Current Focus
 
-- Advancing the **Footstep Power Generation** system from working prototype toward a refined, demo-ready build.
+- Scaling **Smart Home Automation** from a 2nd-year prototype toward a production-ready connected device.
+- Working on **Hexapod** — a college group project in multi-actuator robotics and embedded coordination.
 - Scaling **PabloCommerce** architecture for performance and maintainability.
-- Advancing embedded-to-cloud workflows and PCB-level hardware design for practical deployment.
 
 ## GitHub Analytics
 
@@ -159,6 +204,8 @@ Robotics R&D project exploring multi-actuator control, embedded coordination, an
 
 > **Note:** `hide_rank=true` is intentional — the letter grade is stars/follower-weighted and doesn't reflect real skill for a growing account, so it's hidden rather than shown misleadingly.
 
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0A101F,50:22D3EE,100:A855F7&height=4" width="100%" alt="" />
+
 ## Connect
 
 <div align="center">
@@ -179,6 +226,8 @@ Robotics R&D project exploring multi-actuator control, embedded coordination, an
 
 <p align="center"><sub>Portfolio site is coming soon — the badge above currently links to this GitHub profile.</sub></p>
 
----
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A101F,50:22D3EE,100:A855F7&height=120&section=footer&text=Thanks%20for%20visiting&fontSize=22&fontColor=ffffff&animation=fadeIn&fontAlignY=80" width="100%" alt="" />
+</p>
 
 <p align="center">Designed & Built by <strong>Md Kaif</strong> · Powered by <strong>Pabloch</strong></p>
