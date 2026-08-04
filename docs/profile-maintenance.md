@@ -10,38 +10,37 @@ This repository is the GitHub profile landing page for **iamkaifpathaan**.
 2. Preserve `assets/banner-dark-animated.svg` as the hero banner source.
 3. Keep visual tone dark-first, cyan (`#22D3EE`) / purple (`#A855F7`) accent palette.
 4. Let `.github/workflows/snake.yml` regenerate `assets/github-contribution-grid-snake.svg` (light) and `assets/github-contribution-grid-snake-dark.svg` (dark) daily.
+5. Let `.github/workflows/stats.yml` regenerate the four `assets/stats-*.svg` cards daily.
 
-## Fixing the GitHub Analytics section (self-hosting stats)
+## GitHub Analytics (self-generated stats, no external hosting)
 
 The public `github-readme-stats.vercel.app` instance is shared by everyone using the project and
-regularly returns `503` (rate limit exceeded) — that's the "dead URL" behind the Stats and Top
-Languages cards. `streak-stats.demolab.com` and `github-readme-activity-graph.vercel.app` are
-separate services and stay up on their own.
+regularly returns `503` (rate limit exceeded). Self-hosting it was tried and abandoned — it needs
+a personal access token plus an always-on Vercel deployment, and two attempts at that URL still
+ended up dead (one behind Vercel's preview-deployment SSO wall, one 404ing). Decision: don't
+depend on it at all, in any form, ever again.
 
-Fix it once, ~20 minutes, no cost:
+Instead, `scripts/generate-stats.mjs` queries the GitHub GraphQL API directly and renders the
+Stats and Top Languages cards as static SVGs, styled to match the banner (dark glass panel,
+rounded corners, cyan accent dot, dotted-leader rows). `.github/workflows/stats.yml` runs it daily
+and on every push that touches the script, committing the output straight into `assets/` — same
+pattern as the contribution snake. It authenticates with the repo's built-in `GITHUB_TOKEN`, so
+there is no token to create, no Vercel account, and nothing that can expire or rate-limit against
+a shared public instance.
 
-1. **Create a GitHub token** — `github.com/settings/tokens` → Tokens (classic) → Generate new
-   token (classic) → scope `repo` → No expiration. Copy it immediately; never paste it into a
-   chat, a public repo, or a website.
-2. **Fork** [`anuraghazra/github-readme-stats`](https://github.com/anuraghazra/github-readme-stats).
-3. **Deploy on Vercel** — `vercel.com` → Sign up with GitHub → Hobby (free) → Add New Project →
-   import the fork → leave build settings alone.
-4. **Add an environment variable**: name `PAT_1`, value = the token from step 1. Deploy.
-5. **Copy your instance URL** (`your-instance.vercel.app`) and replace every
-   `YOUR-STATS-INSTANCE` placeholder in `README.md`'s GitHub Analytics section with it.
-6. Verify: `https://your-instance.vercel.app/api?username=iamkaifpathaan&show_icons=true` should
-   render a card, not an error.
+Output files (light + dark, shown via a theme-aware `<picture>` like the snake):
+- `assets/stats-overview.svg` / `-dark.svg` — public repos, followers, total stars, contributions/
+  commits/PRs/issues in the last 12 months. There's no all-time commit count (that needs a
+  multi-year GraphQL loop) — "12mo" figures are the accurate, honest scope.
+- `assets/stats-top-langs.svg` / `-dark.svg` — top 6 languages by byte share across public,
+  non-fork, owned repos, using each language's real GitHub color for its bar.
 
-**Use the production URL, not a preview URL.** Vercel gives every deployment its own URL
-(`project-hash-team.vercel.app`) plus one stable production URL (`project.vercel.app`, or your
-project name + team, no random hash). Preview-deployment URLs are usually behind Vercel
-**Deployment Protection**, so a logged-out visitor hitting them gets redirected to
-`vercel.com/sso-api` instead of a card — that will look exactly like another dead URL. In the
-Vercel dashboard: Project → Deployments → the one tagged **Production** → copy its URL, and check
-Settings → Deployment Protection is off (or "Only Preview Deployments") for production.
+To change what it shows, edit `scripts/generate-stats.mjs` (the `overviewCard`/`langCard`
+functions) and either wait for the next scheduled run or trigger it manually: Actions tab →
+*Generate GitHub Stats Cards* → Run workflow.
 
-`hide_rank=true` is set deliberately — the rank is stars/follower-weighted and misrepresents a
-newer account, so it's hidden rather than shown misleadingly.
+`streak-stats.demolab.com` and `github-readme-activity-graph.vercel.app` are unrelated, separate
+services and have stayed up on their own — no reason to replace those.
 
 ## Contribution snake
 
@@ -72,7 +71,6 @@ newer account, so it's hidden rather than shown misleadingly.
 ## Placeholder checklist
 
 Before publishing major updates, check `README.md` for:
-- `YOUR-STATS-INSTANCE` — must be replaced after self-hosting (see above).
 - Project repository URLs.
 - LinkedIn URL.
 - Portfolio URL (currently a "coming soon" badge pointing at the GitHub profile).
