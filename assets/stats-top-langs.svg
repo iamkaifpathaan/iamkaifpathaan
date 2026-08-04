@@ -1,12 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495 234" width="495" height="234" role="img" aria-label="Top languages for iamkaifpathaan">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495 266" width="495" height="266" role="img" aria-label="Top languages for iamkaifpathaan">
 <style>
 .row-fade { animation: fadeIn .6s ease-out forwards; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 
-<rect width="495" height="234" rx="18" fill="#F8FAFC"/>
-<rect x="1" y="1" width="493" height="232" rx="17" fill="#FFFFFF" fill-opacity="1"/>
-<rect x="1.5" y="1.5" width="492" height="231" rx="16.5" fill="none" stroke="#0F172A" stroke-opacity="0.08"/>
+<rect width="495" height="266" rx="18" fill="#F8FAFC"/>
+<rect x="1" y="1" width="493" height="264" rx="17" fill="#FFFFFF" fill-opacity="1"/>
+<rect x="1.5" y="1.5" width="492" height="263" rx="16.5" fill="none" stroke="#0F172A" stroke-opacity="0.08"/>
 <g fill="#7C3AED" fill-opacity=".28">
   <rect x="461" y="16" width="5" height="5" rx="1"/>
   <rect x="473" y="16" width="5" height="5" rx="1"/>
@@ -19,41 +19,49 @@
   <text x="24" y="56" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#475569" textLength="128" lengthAdjust="spacingAndGlyphs">HTML</text>
   <rect x="160" y="48" width="260" height="7" rx="3.5" fill="#E2E8F0"/>
   <rect x="160" y="48" width="0" height="7" rx="3.5" fill="#e34c26">
-    <animate attributeName="width" from="0" to="158.13" dur=".8s" begin="0.00s" fill="freeze"/>
+    <animate attributeName="width" from="0" to="137.43" dur=".8s" begin="0.00s" fill="freeze"/>
   </rect>
-  <text x="471" y="56" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">60.8%</text>
+  <text x="471" y="56" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">52.9%</text>
 </g>
 <g opacity="0" class="row-fade" style="animation-delay:0.08s">
   <text x="24" y="88" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#475569" textLength="128" lengthAdjust="spacingAndGlyphs">JavaScript</text>
   <rect x="160" y="80" width="260" height="7" rx="3.5" fill="#E2E8F0"/>
   <rect x="160" y="80" width="0" height="7" rx="3.5" fill="#f1e05a">
-    <animate attributeName="width" from="0" to="53.13" dur=".8s" begin="0.08s" fill="freeze"/>
+    <animate attributeName="width" from="0" to="49.53" dur=".8s" begin="0.08s" fill="freeze"/>
   </rect>
-  <text x="471" y="88" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">20.4%</text>
+  <text x="471" y="88" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">19.0%</text>
 </g>
 <g opacity="0" class="row-fade" style="animation-delay:0.16s">
-  <text x="24" y="120" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#475569" textLength="128" lengthAdjust="spacingAndGlyphs">CSS</text>
+  <text x="24" y="120" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#475569" textLength="128" lengthAdjust="spacingAndGlyphs">TypeScript</text>
   <rect x="160" y="112" width="260" height="7" rx="3.5" fill="#E2E8F0"/>
-  <rect x="160" y="112" width="0" height="7" rx="3.5" fill="#663399">
-    <animate attributeName="width" from="0" to="23.22" dur=".8s" begin="0.16s" fill="freeze"/>
+  <rect x="160" y="112" width="0" height="7" rx="3.5" fill="#3178c6">
+    <animate attributeName="width" from="0" to="28.84" dur=".8s" begin="0.16s" fill="freeze"/>
   </rect>
-  <text x="471" y="120" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">8.9%</text>
+  <text x="471" y="120" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">11.1%</text>
 </g>
 <g opacity="0" class="row-fade" style="animation-delay:0.24s">
-  <text x="24" y="152" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#475569" textLength="128" lengthAdjust="spacingAndGlyphs">C++</text>
+  <text x="24" y="152" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#475569" textLength="128" lengthAdjust="spacingAndGlyphs">CSS</text>
   <rect x="160" y="144" width="260" height="7" rx="3.5" fill="#E2E8F0"/>
-  <rect x="160" y="144" width="0" height="7" rx="3.5" fill="#f34b7d">
-    <animate attributeName="width" from="0" to="22.65" dur=".8s" begin="0.24s" fill="freeze"/>
+  <rect x="160" y="144" width="0" height="7" rx="3.5" fill="#663399">
+    <animate attributeName="width" from="0" to="22.02" dur=".8s" begin="0.24s" fill="freeze"/>
   </rect>
-  <text x="471" y="152" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">8.7%</text>
+  <text x="471" y="152" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">8.5%</text>
 </g>
 <g opacity="0" class="row-fade" style="animation-delay:0.32s">
-  <text x="24" y="184" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#475569" textLength="128" lengthAdjust="spacingAndGlyphs">C</text>
+  <text x="24" y="184" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#475569" textLength="128" lengthAdjust="spacingAndGlyphs">C++</text>
   <rect x="160" y="176" width="260" height="7" rx="3.5" fill="#E2E8F0"/>
-  <rect x="160" y="176" width="0" height="7" rx="3.5" fill="#555555">
-    <animate attributeName="width" from="0" to="2.87" dur=".8s" begin="0.32s" fill="freeze"/>
+  <rect x="160" y="176" width="0" height="7" rx="3.5" fill="#f34b7d">
+    <animate attributeName="width" from="0" to="19.69" dur=".8s" begin="0.32s" fill="freeze"/>
   </rect>
-  <text x="471" y="184" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">1.1%</text>
+  <text x="471" y="184" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">7.6%</text>
 </g>
-<text x="479" y="224" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="9" fill="#475569" fill-opacity=".55">updated 2026-08-04 15:14 UTC</text>
+<g opacity="0" class="row-fade" style="animation-delay:0.40s">
+  <text x="24" y="216" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#475569" textLength="128" lengthAdjust="spacingAndGlyphs">C</text>
+  <rect x="160" y="208" width="260" height="7" rx="3.5" fill="#E2E8F0"/>
+  <rect x="160" y="208" width="0" height="7" rx="3.5" fill="#555555">
+    <animate attributeName="width" from="0" to="2.50" dur=".8s" begin="0.40s" fill="freeze"/>
+  </rect>
+  <text x="471" y="216" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">1.0%</text>
+</g>
+<text x="479" y="256" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="9" fill="#475569" fill-opacity=".55">updated 2026-08-04 19:17 UTC</text>
 </svg>
