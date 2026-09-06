@@ -20,7 +20,7 @@
 </p>
 
 <p align="center">
-  <a href="https://portfolio-seven-ebon-79.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-22D3EE?style=for-the-badge&logo=vercel&logoColor=0A101F&labelColor=0A101F" alt="Portfolio" /></a>
+  <a href="https://kaifportfolio.pablochtech.com"><img src="https://img.shields.io/badge/Portfolio-22D3EE?style=for-the-badge&logo=vercel&logoColor=0A101F&labelColor=0A101F" alt="Portfolio" /></a>
   <a href="https://www.linkedin.com/in/iamkaifpathaan/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
   <a href="mailto:p0409athan@gmail.com"><img src="https://img.shields.io/badge/Email-0A101F?style=for-the-badge&logo=gmail&logoColor=10B981&labelColor=0A101F" alt="Email" /></a>
 </p>
@@ -238,7 +238,7 @@ Robotics R&D project exploring multi-actuator control, embedded coordination, an
   <img src="https://img.shields.io/badge/Email-0A101F?style=for-the-badge&logo=gmail&logoColor=10B981&labelColor=0A101F" alt="Email" />
 </a>
 &nbsp;&nbsp;
-<a href="https://portfolio-seven-ebon-79.vercel.app/">
+<a href="https://kaifportfolio.pablochtech.com">
   <img src="https://img.shields.io/badge/Portfolio-0A101F?style=for-the-badge&logo=vercel&logoColor=22D3EE&labelColor=0A101F" alt="Portfolio" />
 </a>
 
