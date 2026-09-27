@@ -23,3 +23,7 @@ coverage/
 # Workflow output artifacts
 *.zip
 *.tar.gz
+
+# downloaded by scripts/svgtext.py
+scripts/.fonts/
+__pycache__/

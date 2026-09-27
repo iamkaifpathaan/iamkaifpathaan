@@ -7,10 +7,42 @@ This repository is the GitHub profile landing page for **iamkaifpathaan**.
 ## Update workflow
 
 1. Update `README.md` content and links.
-2. Preserve `assets/banner-dark-animated.svg` as the hero banner source.
+2. Preserve `assets/banner-dark-animated.svg` as the hero banner source. Its subtitle now reads
+   "Electronics Engineer • L1 QA Engineer @ OPPO" and the status console lists Royal Compass
+   Travels, Renewal Tracker App, Alabuzer and PabloCommerce. All banner text is outlined paths
+   (Space Grotesk 500 @ 26px for the subtitle, Inter 500 @ 15px for console items) — regenerate
+   replacements with `scripts/svgtext.py` rather than using `<text>`.
 3. Keep visual tone dark-first, cyan (`#22D3EE`) / purple (`#A855F7`) accent palette.
 4. Let `.github/workflows/snake.yml` regenerate `assets/github-contribution-grid-snake.svg` (light) and `assets/github-contribution-grid-snake-dark.svg` (dark) daily.
 5. Let `.github/workflows/stats.yml` regenerate all eight `assets/stats-*.svg` cards every 3 hours.
+
+## Animated cards & section headers
+
+`scripts/build-cards.py` generates every custom card and header:
+
+- `assets/card-oppo.svg` — Experience card (L1 QA Engineer @ OPPO): animated test-suite phone,
+  career timeline, skill chips.
+- `assets/card-royal-compass.svg` — Live product card for https://royalcompasstravels.com
+  (swinging compass, flight route with a plane on `animateMotion`).
+- `assets/card-renewal-tracker.svg` — Live product card for https://app.pablochtech.com
+  (countdown ring, renewal list, reminder toast, ringing bell).
+- `assets/section-<slug>.svg` / `-light.svg` — numbered section headers, theme-aware via
+  `<picture>`.
+
+Rules that make them render on GitHub:
+- GitHub shows README SVGs as sandboxed `<img>`s: no web fonts, no JS, no links inside the SVG.
+  All text is converted to outlined paths by `scripts/svgtext.py` (HarfBuzz shaping, same three
+  families as the banner). Links are the `<a>` wrapped around each `<img>` in the README.
+- Cards are 1200px wide and shown full-width so body copy stays ~14px on screen — don't put them
+  side by side, text drops below 10px.
+- Animation is CSS keyframes + SMIL only; each file has a `prefers-reduced-motion` fallback.
+
+To edit copy or layout: change `scripts/build-cards.py`, then
+
+```bash
+pip install fonttools uharfbuzz
+python3 scripts/build-cards.py   # fonts auto-download to scripts/.fonts (git-ignored)
+```
 
 ## GitHub Analytics (self-generated stats, no external hosting)
 
@@ -94,6 +126,7 @@ live API.
 Before publishing major updates, check `README.md` for:
 - Project repository URLs.
 - LinkedIn URL.
-- Portfolio URL (currently `https://portfolio-seven-ebon-79.vercel.app/`, linked from both the
+- Portfolio URL (currently `https://kaifportfolio.pablochtech.com`, linked from both the
   quick-links row under the hero and the Connect section).
+- Live product URLs: `https://royalcompasstravels.com`, `https://app.pablochtech.com`.
 - Contact email.
