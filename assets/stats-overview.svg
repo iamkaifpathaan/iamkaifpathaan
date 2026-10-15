@@ -4,51 +4,51 @@
 @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 
-<rect width="495" height="284" rx="18" fill="#F8FAFC"/>
+<rect width="495" height="284" rx="18" fill="#FAF8F4"/>
 <rect x="1" y="1" width="493" height="282" rx="17" fill="#FFFFFF" fill-opacity="1"/>
-<rect x="1.5" y="1.5" width="492" height="281" rx="16.5" fill="none" stroke="#0F172A" stroke-opacity="0.08"/>
-<g fill="#7C3AED" fill-opacity=".28">
+<rect x="1.5" y="1.5" width="492" height="281" rx="16.5" fill="none" stroke="#18171A" stroke-opacity="0.08"/>
+<g fill="#A8782A" fill-opacity=".28">
   <rect x="461" y="16" width="5" height="5" rx="1"/>
   <rect x="473" y="16" width="5" height="5" rx="1"/>
 </g>
-<rect x="24" y="14" width="5" height="5" rx="1" fill="#22D3EE"/>
-<text x="36" y="23" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">stats.sh --overview</text>
-<rect x="24" y="34" width="447" height="1" fill="#0F172A" fill-opacity="0.08"/>
+<rect x="24" y="14" width="5" height="5" rx="1" fill="#E8B45A"/>
+<text x="36" y="23" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#18171A">stats.sh --overview</text>
+<rect x="24" y="34" width="447" height="1" fill="#18171A" fill-opacity="0.08"/>
 
 <g opacity="0" class="row-fade" style="animation-delay:0.00s">
-  <text x="24" y="56" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#475569">Public Repos</text>
-  <line x1="252" y1="52" x2="399" y2="52" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="1,4"/>
-  <text x="471" y="56" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">14</text>
+  <text x="24" y="56" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#55524D">Public Repos</text>
+  <line x1="252" y1="52" x2="399" y2="52" stroke="#ECE8E1" stroke-width="1" stroke-dasharray="1,4"/>
+  <text x="471" y="56" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#18171A">14</text>
 </g>
 <g opacity="0" class="row-fade" style="animation-delay:0.08s">
-  <text x="24" y="86" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#475569">Followers</text>
-  <line x1="252" y1="82" x2="399" y2="82" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="1,4"/>
-  <text x="471" y="86" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">14</text>
+  <text x="24" y="86" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#55524D">Followers</text>
+  <line x1="252" y1="82" x2="399" y2="82" stroke="#ECE8E1" stroke-width="1" stroke-dasharray="1,4"/>
+  <text x="471" y="86" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#18171A">14</text>
 </g>
 <g opacity="0" class="row-fade" style="animation-delay:0.16s">
-  <text x="24" y="116" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#475569">Total Stars</text>
-  <line x1="252" y1="112" x2="399" y2="112" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="1,4"/>
-  <text x="471" y="116" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">1</text>
+  <text x="24" y="116" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#55524D">Total Stars</text>
+  <line x1="252" y1="112" x2="399" y2="112" stroke="#ECE8E1" stroke-width="1" stroke-dasharray="1,4"/>
+  <text x="471" y="116" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#18171A">1</text>
 </g>
 <g opacity="0" class="row-fade" style="animation-delay:0.24s">
-  <text x="24" y="146" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#475569">Contributions (12mo)</text>
-  <line x1="252" y1="142" x2="399" y2="142" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="1,4"/>
-  <text x="471" y="146" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">525</text>
+  <text x="24" y="146" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#55524D">Contributions (12mo)</text>
+  <line x1="252" y1="142" x2="399" y2="142" stroke="#ECE8E1" stroke-width="1" stroke-dasharray="1,4"/>
+  <text x="471" y="146" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#18171A">526</text>
 </g>
 <g opacity="0" class="row-fade" style="animation-delay:0.32s">
-  <text x="24" y="176" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#475569">Commits (12mo)</text>
-  <line x1="252" y1="172" x2="399" y2="172" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="1,4"/>
-  <text x="471" y="176" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">512</text>
+  <text x="24" y="176" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#55524D">Commits (12mo)</text>
+  <line x1="252" y1="172" x2="399" y2="172" stroke="#ECE8E1" stroke-width="1" stroke-dasharray="1,4"/>
+  <text x="471" y="176" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#18171A">513</text>
 </g>
 <g opacity="0" class="row-fade" style="animation-delay:0.40s">
-  <text x="24" y="206" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#475569">Pull Requests (12mo)</text>
-  <line x1="252" y1="202" x2="399" y2="202" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="1,4"/>
-  <text x="471" y="206" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">0</text>
+  <text x="24" y="206" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#55524D">Pull Requests (12mo)</text>
+  <line x1="252" y1="202" x2="399" y2="202" stroke="#ECE8E1" stroke-width="1" stroke-dasharray="1,4"/>
+  <text x="471" y="206" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#18171A">0</text>
 </g>
 <g opacity="0" class="row-fade" style="animation-delay:0.48s">
-  <text x="24" y="236" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#475569">Issues (12mo)</text>
-  <line x1="252" y1="232" x2="399" y2="232" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="1,4"/>
-  <text x="471" y="236" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#0F172A">0</text>
+  <text x="24" y="236" font-family="Consolas,'Fira Code',monospace" font-size="13" fill="#55524D">Issues (12mo)</text>
+  <line x1="252" y1="232" x2="399" y2="232" stroke="#ECE8E1" stroke-width="1" stroke-dasharray="1,4"/>
+  <text x="471" y="236" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="13" font-weight="700" fill="#18171A">0</text>
 </g>
-<text x="479" y="274" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="9" fill="#475569" fill-opacity=".55">updated 2026-10-15 13:46 UTC</text>
+<text x="479" y="274" text-anchor="end" font-family="Consolas,'Fira Code',monospace" font-size="9" fill="#55524D" fill-opacity=".55">updated 2026-10-15 17:49 UTC</text>
 </svg>
