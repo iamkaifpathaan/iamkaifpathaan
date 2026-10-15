@@ -3,7 +3,8 @@
 GitHub renders README SVGs as sandboxed <img>s, so web fonts never load.
 Every glyph in the profile artwork is therefore converted to a vector path
 here, shaped with HarfBuzz (real kerning) using the same families as the
-banner: Space Grotesk (display), Inter (body), JetBrains Mono (labels).
+portfolio site: Geist (display + body), Geist Mono (labels) and Instrument
+Serif italic (accent words).
 """
 import os
 import re
@@ -18,9 +19,10 @@ from fontTools.ttLib import TTFont
 
 FONT_DIR = os.path.join(os.path.dirname(__file__), ".fonts")
 FAMILIES = {
-    "grotesk": ("Space Grotesk", "SpaceGrotesk"),
-    "inter": ("Inter", "Inter"),
-    "mono": ("JetBrains Mono", "JetBrainsMono"),
+    "grotesk": ("Geist", "Geist"),
+    "inter": ("Geist", "Geist"),
+    "mono": ("Geist Mono", "GeistMono"),
+    "serif": ("Instrument Serif", "InstrumentSerif-Italic"),
 }
 
 
@@ -29,8 +31,9 @@ def _ensure(key, weight):
     path = os.path.join(FONT_DIR, f"{stem}-{weight}.ttf")
     if not os.path.exists(path):
         os.makedirs(FONT_DIR, exist_ok=True)
+        axis = "ital@1" if key == "serif" else f"wght@{weight}"
         css_url = ("https://fonts.googleapis.com/css2?family="
-                   + family.replace(" ", "+") + f":wght@{weight}")
+                   + family.replace(" ", "+") + ":" + axis)
         # An old user agent makes Google Fonts serve plain TrueType files.
         req = urllib.request.Request(css_url, headers={"User-Agent": "Mozilla/4.0"})
         css = urllib.request.urlopen(req).read().decode()

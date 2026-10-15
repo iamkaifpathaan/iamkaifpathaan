@@ -7,36 +7,37 @@
 const TOKEN = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
 const LOGIN = process.env.GH_LOGIN || "iamkaifpathaan";
 
+// Matches the portfolio + profile cards: champagne gold and warm ivory on near-black.
 const PALETTE = {
-  cyan: "#22D3EE",
-  purple: "#A855F7",
-  green: "#10B981",
+  cyan: "#E8B45A",
+  purple: "#C9973F",
+  green: "#34D399",
 };
 
 const THEMES = {
   dark: {
-    bg: "#0B1020",
-    panelFill: "#131A2E",
+    bg: "#0B0B0D",
+    panelFill: "#151517",
     panelOpacity: "0.72",
-    border: "#22D3EE",
+    border: "#E8B45A",
     borderOpacity: "0.16",
-    title: "#E2E8F0",
-    label: "#94A3B8",
-    value: "#F1F5F9",
-    track: "#1E293B",
-    dot: "#22D3EE",
+    title: "#F2EFE9",
+    label: "#9B978F",
+    value: "#F2EFE9",
+    track: "#232326",
+    dot: "#E8B45A",
   },
   light: {
-    bg: "#F8FAFC",
+    bg: "#FAF8F4",
     panelFill: "#FFFFFF",
     panelOpacity: "1",
-    border: "#0F172A",
+    border: "#18171A",
     borderOpacity: "0.08",
-    title: "#0F172A",
-    label: "#475569",
-    value: "#0F172A",
-    track: "#E2E8F0",
-    dot: "#7C3AED",
+    title: "#18171A",
+    label: "#55524D",
+    value: "#18171A",
+    track: "#ECE8E1",
+    dot: "#A8782A",
   },
 };
 

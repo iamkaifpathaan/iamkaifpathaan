@@ -5,6 +5,9 @@
 
 Outputs (all text outlined to paths, CSS/SMIL animation only, no external
 resources, so GitHub's <img> sandbox renders them exactly as designed):
+    assets/banner.svg                 hero banner with a live scope (1200x440)
+    assets/card-electronica.svg       product card (1200x440)
+    assets/card-pabloch.svg           product card (1200x440)
     assets/card-oppo.svg              experience card (1200x470)
     assets/card-royal-compass.svg     live product card (1200x420)
     assets/card-renewal-tracker.svg   live product card (1200x420)
@@ -18,8 +21,12 @@ from svgtext import measure, text
 
 ASSETS = os.path.join(os.path.dirname(__file__), "..", "assets")
 
-BG = "#0B1020"
-PANEL = "#131A2E"
+# Palette shared with the portfolio site (kaifportfolio.pablochtech.com):
+# near-black, warm ivory, champagne gold — product colours only as accents.
+BG = "#0B0B0D"
+PANEL = "#151517"
+IVORY = "#F2EFE9"
+CHAMPAGNE = "#E8B45A"
 CYAN = "#22D3EE"
 PURPLE = "#A855F7"
 VIOLET = "#7C3AED"
@@ -28,9 +35,9 @@ MINT = "#34D399"
 GOLD = "#FBBF24"
 AMBER = "#F59E0B"
 ROSE = "#FB7185"
-WHITE = "#F8FAFC"
-MUTED = "#94A3B8"
-SLATE = "#334155"
+WHITE = "#F2EFE9"
+MUTED = "#9B978F"
+SLATE = "#3A3835"
 
 REDUCED = ("@media (prefers-reduced-motion:reduce){*{animation:none!important}"
            # static fallbacks for elements that only make sense mid-animation
@@ -75,9 +82,9 @@ def frame(w, h, glows, uid):
         f'<clipPath id="{uid}clip"><rect width="{w}" height="{h}" rx="28"/></clipPath>'
         f'<linearGradient id="{uid}edge" x1="0" y1="0" x2="{w}" y2="{h}" gradientUnits="userSpaceOnUse">'
         f'<stop offset="0" stop-color="{WHITE}" stop-opacity=".16"/><stop offset=".5" stop-color="{WHITE}" stop-opacity=".05"/>'
-        f'<stop offset="1" stop-color="{CYAN}" stop-opacity=".18"/></linearGradient>'
+        f'<stop offset="1" stop-color="{CHAMPAGNE}" stop-opacity=".22"/></linearGradient>'
         f'<linearGradient id="{uid}run" x1="0" y1="0" x2="{w}" y2="0" gradientUnits="userSpaceOnUse">'
-        f'<stop offset="0" stop-color="{CYAN}"/><stop offset="1" stop-color="{PURPLE}"/></linearGradient>'
+        f'<stop offset="0" stop-color="{CHAMPAGNE}"/><stop offset="1" stop-color="{IVORY}"/></linearGradient>'
     )
     body = (
         f'<g clip-path="url(#{uid}clip)"><rect width="{w}" height="{h}" fill="{BG}"/>'
@@ -167,7 +174,7 @@ def text_column(b, u, pill_label, pill_color, kicker, title, title_size, sub, pa
             x += W(s, key, wt, size, tr) + 14
     y += 48
     for i, line in enumerate(paras):
-        b.append(P(line, 56, y + i * 29, "#A5B4C8", "inter", 400, 19, extra=f'class="rise" style="animation-delay:{.32+i*.05:.2f}s"'))
+        b.append(P(line, 56, y + i * 29, "#B5B0A7", "inter", 400, 19, extra=f'class="rise" style="animation-delay:{.32+i*.05:.2f}s"'))
     return y + (len(paras) - 1) * 29
 
 
@@ -201,7 +208,7 @@ def oppo_card():
         b.append(
             f'<g class="rise" style="animation-delay:{.45+i*.07:.2f}s"><rect x="{x}" y="{cy}" width="{cw:.1f}" height="36" rx="10" '
             f'fill="{WHITE}" fill-opacity=".04" stroke="{WHITE}" stroke-opacity=".12"/>'
-            + P(chip, x + 16, cy + 23, "#CBD5E1", "mono", 500, 14) + "</g>"
+            + P(chip, x + 16, cy + 23, "#D6D1C7", "mono", 500, 14) + "</g>"
         )
         x += cw + 10
     # career timeline
@@ -219,7 +226,7 @@ def oppo_card():
         b.append(f'<circle cx="{nx}" cy="{tl_y}" r="{7 if active else 5}" fill="{BG}" stroke="{c}" stroke-width="2"/>')
         if active:
             b.append(f'<circle cx="{nx}" cy="{tl_y}" r="3" fill="{MINT}"/>')
-        b.append(P(lab, nx - 8, tl_y + 32, c if active else "#64748B", "mono", 500, 12.5, .14))
+        b.append(P(lab, nx - 8, tl_y + 32, c if active else "#7A766F", "mono", 500, 12.5, .14))
         b.append("</g>")
     b.append(P("NOW", x1 + 14, tl_y + 4.5, MINT, "mono", 700, 12, .2, "start", 'class="rise" style="animation-delay:1.6s"'))
 
@@ -235,7 +242,7 @@ def oppo_card():
     px, py, pw, ph = 880, 29, 260, 412
     defs += f'<clipPath id="{u}screen"><rect x="14" y="14" width="232" height="384" rx="26"/></clipPath>'
     b.append(f'<g transform="translate({px} {py})"><g class="float">'
-             f'<rect width="{pw}" height="{ph}" rx="40" fill="#0E1528" stroke="{SLATE}" stroke-width="2"/>'
+             f'<rect width="{pw}" height="{ph}" rx="40" fill="#141416" stroke="{SLATE}" stroke-width="2"/>'
              f'<rect x="6" y="6" width="{pw-12}" height="{ph-12}" rx="34" fill="none" stroke="{WHITE}" stroke-opacity=".06"/>'
              f'<rect x="{pw}" y="110" width="3" height="46" rx="1.5" fill="{SLATE}"/>'
              f'<rect x="-3" y="96" width="3" height="30" rx="1.5" fill="{SLATE}"/>'
@@ -254,7 +261,7 @@ def oppo_card():
                   f"@keyframes {kf}c{{0%,{t0:.2f}%{{stroke-dashoffset:14;opacity:0}}{t0+.3:.2f}%{{opacity:1}}{t0+4:.2f}%,90%{{stroke-dashoffset:0;opacity:1}}96%,100%{{stroke-dashoffset:0;opacity:0}}}}"
                   f"@keyframes {kf}b{{0%,{t0:.2f}%{{fill-opacity:0}}{t0+2:.2f}%,90%{{fill-opacity:.16}}96%,100%{{fill-opacity:0}}}}")
         b.append(f'<rect x="24" y="{ry-18}" width="212" height="32" rx="9" fill="{WHITE}" fill-opacity=".03"/>')
-        b.append(P(lab, 60, ry + 3, "#CBD5E1", "inter", 500, 13.5))
+        b.append(P(lab, 60, ry + 3, "#D6D1C7", "inter", 500, 13.5))
         b.append(f'<circle cx="44" cy="{ry-2}" r="8" fill="none" stroke="{SLATE}" stroke-width="1.5"/>')
         b.append(f'<g style="animation:{kf}s {T}s linear infinite both"><circle cx="44" cy="{ry-2}" r="8" fill="none" stroke="{CYAN}" '
                  f'stroke-width="1.8" stroke-dasharray="12 40" stroke-linecap="round" class="spin-fast" style="transform-box:fill-box;transform-origin:center"/></g>')
@@ -315,7 +322,7 @@ def royal_card():
         f'<linearGradient id="{u}cta" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FDE68A"/>'
         f'<stop offset="1" stop-color="{AMBER}"/></linearGradient>'
         f'<radialGradient id="{u}face" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1030 212) scale(112)">'
-        f'<stop offset="0" stop-color="#1B2440"/><stop offset="1" stop-color="#0E1528"/></radialGradient>'
+        f'<stop offset="0" stop-color="#1D1D20"/><stop offset="1" stop-color="#141416"/></radialGradient>'
         + shine_grad(u)
     )
     b = [body]
@@ -330,7 +337,7 @@ def royal_card():
     for (x, y, lab, d) in [(640, 330, "DEPART", 0), (880, 104, "ARRIVE", .3)]:
         b.append(f'<g class="rise" style="animation-delay:{.3+d}s"><circle cx="{x}" cy="{y}" r="6" fill="{GOLD}" class="ping" style="animation-delay:{d}s"/>'
                  f'<circle cx="{x}" cy="{y}" r="5.5" fill="{BG}" stroke="{GOLD}" stroke-width="2"/><circle cx="{x}" cy="{y}" r="2" fill="{GOLD}"/>'
-                 + P(lab, x, y + 26 if d == 0 else y - 16, "#64748B", "mono", 500, 10, .2, "middle") + "</g>")
+                 + P(lab, x, y + 26 if d == 0 else y - 16, "#7A766F", "mono", 500, 10, .2, "middle") + "</g>")
     plane = ("M11 0 L-3 -2.2 L-6 -9 L-9 -9 L-7 -2 L-12 -1.4 L-14 -4.5 L-16 -4.5 L-15 0 L-16 4.5 L-14 4.5 L-12 1.4 "
              "L-7 2 L-9 9 L-6 9 L-3 2.2 Z")
     b.append(f'<g><path d="{plane}" fill="{WHITE}" style="filter:drop-shadow(0 0 6px {GOLD})"/>'
@@ -357,7 +364,7 @@ def royal_card():
         b.append(P(lab, x, y, GOLD if lab == "N" else MUTED, "grotesk", 700, 17, 0, "middle"))
     b.append(f'<g class="needle" style="transform-origin:{cx}px {cy}px">'
              f'<path d="M{cx} {cy-74} L{cx+10} {cy} L{cx-10} {cy} Z" fill="url(#{u}gold)"/>'
-             f'<path d="M{cx} {cy+74} L{cx+10} {cy} L{cx-10} {cy} Z" fill="#475569"/>'
+             f'<path d="M{cx} {cy+74} L{cx+10} {cy} L{cx-10} {cy} Z" fill="#55524D"/>'
              f'<path d="M{cx} {cy-74} L{cx} {cy+74}" stroke="#000" stroke-opacity=".2"/></g>')
     b.append(f'<circle cx="{cx}" cy="{cy}" r="8" fill="{BG}" stroke="{GOLD}" stroke-width="2"/><circle cx="{cx}" cy="{cy}" r="3" fill="{GOLD}"/>')
     b.append("</g>")
@@ -395,7 +402,7 @@ def renewal_card():
     circ = 2 * math.pi * r
     b.append(f'<g class="rise" style="animation-delay:.15s">')
     b.append(f'<circle cx="{cx}" cy="{cy}" r="{r+18}" fill="none" stroke="{CYAN}" stroke-opacity=".14" stroke-dasharray="2 6" class="spin" style="transform-origin:{cx}px {cy}px"/>')
-    b.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="#0E1528" stroke="{WHITE}" stroke-opacity=".07" stroke-width="11"/>')
+    b.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="#141416" stroke="{WHITE}" stroke-opacity=".07" stroke-width="11"/>')
     b.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="url(#{u}ring)" stroke-width="11" stroke-linecap="round" '
              f'stroke-dasharray="{circ:.1f}" class="ring" style="--c:{circ:.1f};transform-origin:{cx}px {cy}px"/>')
     for i, n in enumerate(["30", "12", "03"]):
@@ -404,7 +411,7 @@ def renewal_card():
     b.append("</g>")
     # app panel
     b.append(f'<g class="rise" style="animation-delay:.25s">')
-    b.append(f'<rect x="860" y="56" width="300" height="308" rx="20" fill="#0E1528" fill-opacity=".88" stroke="{WHITE}" stroke-opacity=".10"/>')
+    b.append(f'<rect x="860" y="56" width="300" height="308" rx="20" fill="#141416" fill-opacity=".88" stroke="{WHITE}" stroke-opacity=".10"/>')
     b.append(f'<g clip-path="url(#{u}app)">')
     b.append(P("Upcoming renewals", 882, 94, WHITE, "grotesk", 600, 16))
     bx, by = 1130, 86
@@ -419,11 +426,11 @@ def renewal_card():
         b.append(f'<rect x="882" y="{ry-16}" width="28" height="28" rx="8" fill="{c}" fill-opacity=".14"/>'
                  f'<rect x="889" y="{ry-9}" width="14" height="14" rx="3" fill="none" stroke="{c}" stroke-width="1.6"/>'
                  f'<path d="M889 {ry-4}h14" stroke="{c}" stroke-width="1.6"/>')
-        b.append(P(lab, 922, ry, "#E2E8F0", "inter", 500, 14))
+        b.append(P(lab, 922, ry, "#E9E5DD", "inter", 500, 14))
         b.append(P(due, 1138, ry, c, "mono", 700, 11.5, .05, "end"))
         b.append(f'<rect x="922" y="{ry+10}" width="216" height="4" rx="2" fill="{WHITE}" fill-opacity=".07"/>'
                  f'<rect x="922" y="{ry+10}" width="{216*frac:.1f}" height="4" rx="2" fill="{c}" class="bar" style="animation-delay:{.6+i*.18:.2f}s"/>')
-    b.append(f'<g class="toast"><rect x="872" y="68" width="276" height="46" rx="12" fill="#1B2440" stroke="{ROSE}" stroke-opacity=".5"/>'
+    b.append(f'<g class="toast"><rect x="872" y="68" width="276" height="46" rx="12" fill="#1D1D20" stroke="{ROSE}" stroke-opacity=".5"/>'
              f'<circle cx="894" cy="91" r="10" fill="{ROSE}" fill-opacity=".18"/>'
              f'<path d="M894 85v7l4 2" fill="none" stroke="{ROSE}" stroke-width="1.8" stroke-linecap="round"/>'
              + P("Domain & Hosting renews in 3 days", 914, 96, WHITE, "inter", 500, 13) + "</g>")
@@ -448,13 +455,206 @@ def renewal_card():
     return svg(w, h, "Renewal Tracker — download the app at app.pablochtech.com", "\n".join(b), style, defs)
 
 
+
+# ------------------------------------------------------------------- banner
+def run(b, x, y, parts, delay=0.0):
+    """Lay out mixed-style text segments on one baseline; returns end x."""
+    for i, (txt, fill, key, wt, size, tr) in enumerate(parts):
+        b.append(P(txt, x, y, fill, key, wt, size, tr, extra=f'class="rise" style="animation-delay:{delay+i*.05:.2f}s"'))
+        x += W(txt, key, wt, size, tr)
+    return x
+
+
+def banner():
+    w, h, u = CARD_W, 440, "b"
+    defs, body, style = frame(w, h, [(1060, 40, 560, 380, CHAMPAGNE, .17), (80, 470, 560, 300, "#818CF8", .08)], u)
+    sx0, sx1, sy0, sy1 = 790, 1144, 72, 368
+    defs += (
+        f'<clipPath id="{u}scope"><rect x="{sx0}" y="{sy0}" width="{sx1-sx0}" height="{sy1-sy0}" rx="20"/></clipPath>'
+        f'<linearGradient id="{u}wave" x1="{sx0}" y1="0" x2="{sx1}" y2="0" gradientUnits="userSpaceOnUse">'
+        f'<stop offset="0" stop-color="{CHAMPAGNE}" stop-opacity="0"/><stop offset=".35" stop-color="{CHAMPAGNE}"/>'
+        f'<stop offset="1" stop-color="#F5D9A3"/></linearGradient>'
+    )
+    b = [body]
+    pl, pw_ = pill(56, 48, "BUILDING  ·  PABLOCH TECH", MINT, u)
+    b.append(pl)
+    b.append(P("GREATER NOIDA, INDIA", w - 56, 67.5, MUTED, "mono", 500, 12, .22, "end", 'class="rise" style="animation-delay:.1s"'))
+    b.append(P("Md Kaif", 50, 222, WHITE, "grotesk", 600, 128, -0.045, extra='class="rise" style="animation-delay:.1s"'))
+    run(b, 56, 284, [("Engineering ideas into ", MUTED, "grotesk", 500, 33, -0.02),
+                     ("products", CHAMPAGNE, "serif", 400, 40, -0.01),
+                     (" people ", MUTED, "grotesk", 500, 33, -0.02),
+                     ("use.", CHAMPAGNE, "serif", 400, 40, -0.01)], .25)
+    x = 56
+    for i, chip in enumerate(["Electronics Engineer", "Founder, Pabloch Tech", "L1 QA Engineer @ OPPO"]):
+        cw = W(chip, "mono", 500, 13, .04) + 32
+        b.append(f'<g class="rise" style="animation-delay:{.5+i*.07:.2f}s"><rect x="{x}" y="{338}" width="{cw:.1f}" height="36" rx="18" '
+                 f'fill="{WHITE}" fill-opacity=".04" stroke="{WHITE}" stroke-opacity=".14"/>'
+                 + P(chip, x + 16, 361, "#D6D1C7", "mono", 500, 13, .04) + "</g>")
+        x += cw + 10
+    # oscilloscope: analog + digital traces scrolling forever
+    b.append(f'<g class="rise" style="animation-delay:.2s">')
+    b.append(f'<rect x="{sx0}" y="{sy0}" width="{sx1-sx0}" height="{sy1-sy0}" rx="20" fill="#121214" stroke="{WHITE}" stroke-opacity=".10"/>')
+    grid = "".join(f"M{sx0 + i*44.25:.1f} {sy0}V{sy1}" for i in range(1, 8)) + "".join(f"M{sx0} {sy0 + j*37:.1f}H{sx1}" for j in range(1, 8))
+    b.append(f'<g clip-path="url(#{u}scope)"><path d="{grid}" stroke="{WHITE}" stroke-opacity=".05"/>')
+    b.append(f'<path d="M{sx0} {(sy0+sy1)/2-30}H{sx1}" stroke="{WHITE}" stroke-opacity=".12" stroke-dasharray="2 6"/>')
+    per, cy, amp = 118, (sy0 + sy1) / 2 - 30, 62
+    pts = []
+    xx = sx0 - per
+    while xx <= sx1 + per * 2:
+        pts.append(f"{xx:.1f} {cy - amp*math.sin((xx - sx0) / per * 2*math.pi):.1f}")
+        xx += 3
+    b.append(f'<g class="wave" style="--p:{per}px"><path d="M{" L".join(pts)}" fill="none" stroke="url(#{u}wave)" stroke-width="2.6" '
+             f'stroke-linejoin="round" style="filter:drop-shadow(0 0 6px {CHAMPAGNE})"/></g>')
+    dy, dh = sy1 - 52, 26
+    sq, xx = [], sx0 - per
+    hi = True
+    sq.append(f"M{xx} {dy}")
+    while xx <= sx1 + per * 2:
+        sq.append(f"V{dy - dh if hi else dy}H{xx + per/2:.1f}")
+        hi = not hi
+        xx += per / 2
+    b.append(f'<g class="wave" style="--p:{per}px;animation-duration:3.6s"><path d="{"".join(sq)}" fill="none" stroke="{MINT}" '
+             f'stroke-opacity=".8" stroke-width="2"/></g></g>')
+    b.append(P("CH1  ANALOG", sx0 + 18, sy0 + 28, CHAMPAGNE, "mono", 500, 11, .2))
+    b.append(P("CH2  DIGITAL", sx0 + 18, sy1 - 16, MINT, "mono", 500, 11, .2))
+    b.append(P("230 V · 50 Hz", sx1 - 18, sy0 + 28, MUTED, "mono", 500, 11, .12, "end"))
+    b.append("</g>")
+    style += COMMON + "@keyframes wv{to{transform:translateX(calc(var(--p)*-1))}}.wave{animation:wv 2.4s linear infinite}"
+    return svg(w, h, "Md Kaif — electronics engineer, founder of Pabloch Tech, L1 QA Engineer at OPPO", "\n".join(b), style, defs)
+
+
+# -------------------------------------------------------- Electronica card
+def electronica_card():
+    w, h, u = CARD_W, 440, "e"
+    TEAL = "#5EEAD4"
+    defs, body, style = frame(w, h, [(1010, 220, 420, 330, TEAL, .15), (640, 0, 380, 260, CHAMPAGNE, .08)], u)
+    defs += (
+        f'<linearGradient id="{u}cta" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{TEAL}"/>'
+        f'<stop offset="1" stop-color="#A7F3D0"/></linearGradient>'
+        + shine_grad(u)
+    )
+    b = [body]
+    text_column(b, u, "LIVE", TEAL, "LEARNING PLATFORM  ·  @IAM.YOURPROFESSOR", "Electronica", 56, None,
+                ["A free electronics school in 30-second reels — 98 so far,",
+                 "every frame drawn in code and every sound synthesised",
+                 "by a Python engine I wrote. The site builds itself."])
+    link_row(b, u, 344, "learn.pablochtech.com", TEAL, globe(TEAL), "Start learning", f"{u}cta", "right")
+
+    def reel(x, y, rw, rh, rot, delay, inner, tint):
+        cx, cy = x + rw / 2, y + rh / 2
+        g = [f'<g class="rise" style="animation-delay:{delay}s"><g transform="rotate({rot} {cx} {cy})">',
+             f'<rect x="{x}" y="{y}" width="{rw}" height="{rh}" rx="18" fill="#101012" stroke="{tint}" stroke-opacity=".35"/>',
+             f'<rect x="{x+10}" y="{y+10}" width="{rw-20}" height="{rh-20}" rx="12" fill="{tint}" fill-opacity=".05"/>']
+        g += inner
+        g.append("</g></g>")
+        return "".join(g)
+
+    # left reel: an LED that blinks
+    lx, ly = 718, 108
+    left = [P("EP.01", lx + 18, ly + 34, MUTED, "mono", 500, 10, .2),
+            f'<path d="M{lx+50} {ly+140}h40l-20-30z" fill="none" stroke="{GOLD}" stroke-width="2"/>'
+            f'<path d="M{lx+50} {ly+110}h40" stroke="{GOLD}" stroke-width="2"/>'
+            f'<circle cx="{lx+70}" cy="{ly+120}" r="26" fill="{GOLD}" class="led" fill-opacity=".25"/>',
+            P("Blink an LED", lx + 70, ly + 196, WHITE, "grotesk", 600, 14, 0, "middle")]
+    b.append(reel(lx, ly, 140, 236, -8, .2, left, GOLD))
+    # right reel: hex quiz
+    rx_, ry_ = 1036, 108
+    right = [P("EP.98 · QUIZ", rx_ + 18, ry_ + 34, MUTED, "mono", 500, 10, .2),
+             P("0x20", rx_ + 70, ry_ + 132, "#C4B5FD", "grotesk", 700, 40, 0, "middle"),
+             P("= 32", rx_ + 70, ry_ + 170, WHITE, "serif", 400, 26, 0, "middle"),
+             f'<circle cx="{rx_+70}" cy="{ry_+205}" r="12" fill="none" stroke="#C4B5FD" stroke-width="3" stroke-dasharray="75.4" class="tick" style="transform-origin:{rx_+70}px {ry_+205}px"/>']
+    b.append(reel(rx_, ry_, 140, 236, 8, .35, right, "#C4B5FD"))
+    # centre reel: live sine wave
+    cx0, cy0, cw_, ch_ = 868, 70, 164, 292
+    defs += f'<clipPath id="{u}cr"><rect x="{cx0+10}" y="{cy0+10}" width="{cw_-20}" height="{ch_-20}" rx="12"/></clipPath>'
+    per, mid = 72, cy0 + 150
+    pts, xx = [], cx0 - per
+    while xx <= cx0 + cw_ + per * 2:
+        pts.append(f"{xx:.1f} {mid - 30*math.sin((xx - cx0) / per * 2*math.pi):.1f}")
+        xx += 3
+    centre = [P("WHY DOES…?", cx0 + 20, cy0 + 38, TEAL, "mono", 500, 10, .2),
+              P("AC changes", cx0 + 20, cy0 + 72, WHITE, "grotesk", 600, 17, -0.01),
+              P("direction", cx0 + 20, cy0 + 94, TEAL, "serif", 400, 21, 0),
+              f'<g clip-path="url(#{u}cr)"><path d="M{cx0} {mid}H{cx0+cw_}" stroke="{WHITE}" stroke-opacity=".12" stroke-dasharray="2 5"/>'
+              f'<g class="wave" style="--p:{per}px"><path d="M{" L".join(pts)}" fill="none" stroke="{TEAL}" stroke-width="2.4" style="filter:drop-shadow(0 0 5px {TEAL})"/></g></g>',
+              P("50 times a second", cx0 + cw_ / 2, cy0 + 236, MUTED, "inter", 500, 12, 0, "middle"),
+              f'<rect x="{cx0+20}" y="{cy0+256}" width="{cw_-40}" height="3" rx="1.5" fill="{WHITE}" fill-opacity=".1"/>'
+              f'<rect x="{cx0+20}" y="{cy0+256}" width="{cw_-40}" height="3" rx="1.5" fill="{TEAL}" class="prog"/>']
+    b.append(reel(cx0, cy0, cw_, ch_, 0, .1, centre, TEAL))
+    b.append(P("98 REELS  ·  20 SERIES  ·  100% CODE", 940, 404, MUTED, "mono", 500, 11, .22, "middle", 'class="rise" style="animation-delay:.6s"'))
+    style += (
+        COMMON
+        + "@keyframes wv{to{transform:translateX(calc(var(--p)*-1))}}.wave{animation:wv 2s linear infinite}"
+        "@keyframes led{0%,100%{fill-opacity:.12}50%{fill-opacity:.55}}.led{animation:led 1.6s ease-in-out infinite}"
+        "@keyframes tick{from{stroke-dashoffset:0}to{stroke-dashoffset:75.4}}.tick{transform:rotate(-90deg);animation:tick 3s linear infinite}"
+        "@keyframes prog{from{transform:scaleX(0)}to{transform:scaleX(1)}}"
+        ".prog{transform-box:fill-box;transform-origin:left center;animation:prog 6s linear infinite}"
+    )
+    return svg(w, h, "Electronica — free electronics lessons at learn.pablochtech.com", "\n".join(b), style, defs)
+
+
+# --------------------------------------------------------- Pabloch Tech card
+def pabloch_card():
+    w, h, u = CARD_W, 440, "p"
+    defs, body, style = frame(w, h, [(980, 200, 440, 340, CHAMPAGNE, .16), (300, 0, 420, 240, IVORY, .04)], u)
+    defs += (
+        f'<linearGradient id="{u}cta" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F5D9A3"/>'
+        f'<stop offset="1" stop-color="{CHAMPAGNE}"/></linearGradient>'
+        + shine_grad(u)
+    )
+    b = [body]
+    text_column(b, u, "TAKING PROJECTS", CHAMPAGNE, "STUDIO  ·  FOUNDER", "Pabloch Tech", 56, None,
+                ["My independent studio. Websites, online stores and",
+                 "digital products for US & UK businesses — hand-built,",
+                 "with a working draft before anyone pays."])
+    link_row(b, u, 344, "projects.pablochtech.com", CHAMPAGNE, globe(CHAMPAGNE), "Visit the studio", f"{u}cta", "right")
+    # wireframe browser, drawn line by line
+    bx, by, bw, bh = 712, 66, 432, 300
+    lines = [
+        (f"M{bx+20} {by}H{bx+bw-20}A20 20 0 0 1 {bx+bw} {by+20}V{by+bh-20}A20 20 0 0 1 {bx+bw-20} {by+bh}"
+         f"H{bx+20}A20 20 0 0 1 {bx} {by+bh-20}V{by+20}A20 20 0 0 1 {bx+20} {by}Z", 1500),
+        (f"M{bx} {by+40}H{bx+bw}", bw),
+        (f"M{bx+150} {by+20}H{bx+bw-110}", 180),
+        (f"M{bx+28} {by+214}H{bx+250}", 222),
+        (f"M{bx+28} {by+232}H{bx+210}", 182),
+        (f"M{bx+260} {by+70}H{bx+bw-28}V{by+190}H{bx+260}Z", 500),
+        (f"M{bx+260} {by+70}L{bx+bw-28} {by+190}M{bx+bw-28} {by+70}L{bx+260} {by+190}", 360),
+    ]
+    b.append(f'<rect x="{bx}" y="{by}" width="{bw}" height="{bh}" rx="20" fill="#111113" class="rise" style="animation-delay:.1s"/>')
+    for i, (d, L) in enumerate(lines):
+        b.append(f'<path d="{d}" fill="none" stroke="{WHITE}" stroke-opacity=".32" stroke-width="1.4" class="ink" '
+                 f'style="--L:{L};animation-delay:{i*.18:.2f}s"/>')
+    for i in range(3):
+        b.append(f'<circle cx="{bx+22+i*14}" cy="{by+20}" r="4" fill="{WHITE}" fill-opacity=".25"/>')
+    run(b, bx + 28, by + 112, [("Digital products,", WHITE, "grotesk", 600, 25, -0.03)], .3)
+    run(b, bx + 28, by + 146, [("crafted ", WHITE, "grotesk", 600, 25, -0.03), ("line", CHAMPAGNE, "serif", 400, 30, 0)], .4)
+    run(b, bx + 28, by + 182, [("by line.", CHAMPAGNE, "serif", 400, 30, 0)], .5)
+    btn_x, btn_y = bx + 28, by + 252
+    b.append(f'<rect x="{btn_x}" y="{btn_y}" width="132" height="30" rx="15" fill="{CHAMPAGNE}" class="rise" style="animation-delay:.9s"/>'
+             + P("START A PROJECT", btn_x + 66, btn_y + 19.5, BG, "mono", 700, 10, .14, "middle", 'class="rise" style="animation-delay:.9s"'))
+    b.append(f'<circle cx="{btn_x+100}" cy="{btn_y+15}" r="14" fill="none" stroke="{CHAMPAGNE}" stroke-width="2" class="click" '
+             f'style="transform-origin:{btn_x+100}px {btn_y+15}px"/>')
+    cursor = "M0 0 L0 17 L4.5 12.8 L7.6 19.6 L10.6 18.3 L7.6 11.6 L13.4 11.6 Z"
+    b.append(f'<g class="cur"><path d="{cursor}" fill="{WHITE}" stroke="{BG}" stroke-width="1.2" stroke-linejoin="round"/>'
+             f'<animateMotion dur="7s" repeatCount="indefinite" path="M{bx+bw-60} {by+bh-20} C {bx+300} {by+300}, {btn_x+160} {btn_y+40}, {btn_x+98} {btn_y+12}" '
+             f'keyPoints="0;1;1;0" keyTimes="0;.45;.75;1" calcMode="spline" keySplines=".45 0 .55 1;0 0 1 1;.45 0 .55 1"/></g>')
+    style += (
+        COMMON
+        + "@keyframes ink{0%{stroke-dashoffset:var(--L)}30%,82%{stroke-dashoffset:0}100%{stroke-dashoffset:calc(var(--L)*-1)}}"
+        ".ink{stroke-dasharray:var(--L);animation:ink 7s cubic-bezier(.65,0,.35,1) infinite both}"
+        "@keyframes click{0%,47%{transform:scale(.2);opacity:0}50%{opacity:1}62%,100%{transform:scale(1.6);opacity:0}}"
+        ".click{animation:click 7s ease-out infinite}"
+    )
+    return svg(w, h, "Pabloch Tech — independent studio at projects.pablochtech.com", "\n".join(b), style, defs)
+
+
 # ----------------------------------------------------------- section headers
 SECTIONS = [
     ("about", "01", "About", "WHO I AM"),
-    ("experience", "02", "Experience", "WHERE I WORK"),
-    ("live-products", "03", "Live Products", "SHIPPED & IN USE"),
-    ("projects", "04", "Featured Projects", "BUILT & BUILDING"),
-    ("stack", "05", "Tech Stack", "TOOLS OF THE TRADE"),
+    ("now", "02", "Right Now", "WHERE I WORK"),
+    ("products", "03", "Products", "BUILT, SHIPPED & LIVE"),
+    ("projects", "04", "More Work", "CLIENTS, HARDWARE & MOTION"),
+    ("stack", "05", "Toolbox", "WHAT I WORK WITH"),
     ("analytics", "06", "GitHub Analytics", "AUTO-UPDATED EVERY 3H"),
     ("connect", "07", "Let's Connect", "SAY HELLO"),
 ]
@@ -463,10 +663,10 @@ SECTIONS = [
 def section(slug, idx, title, caption, theme):
     w, h = 1200, 96
     dark = theme == "dark"
-    tcol = WHITE if dark else "#0F172A"
-    mcol = "#64748B"
-    acc1 = CYAN if dark else "#0891B2"
-    acc2 = PURPLE if dark else VIOLET
+    tcol = WHITE if dark else "#18171A"
+    mcol = "#7A766F"
+    acc1 = CHAMPAGNE if dark else "#A8782A"
+    acc2 = IVORY if dark else "#55524D"
     u = "s"
     iw = W(idx, "mono", 700, 16, .1)
     tx = 20 + iw + 48
@@ -510,7 +710,10 @@ def write(name, content):
 
 
 if __name__ == "__main__":
+    write("banner.svg", banner())
     write("card-oppo.svg", oppo_card())
+    write("card-electronica.svg", electronica_card())
+    write("card-pabloch.svg", pabloch_card())
     write("card-royal-compass.svg", royal_card())
     write("card-renewal-tracker.svg", renewal_card())
     for slug, idx, title, cap in SECTIONS:
